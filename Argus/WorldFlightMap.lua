@@ -20,31 +20,24 @@ local function OnDataRefreshed(self)
 	end
 end
 
-local function OnPinAdded(self, taxiNodeData)
-	local Pin = self.slotIndexToPin[taxiNodeData.slotIndex]
-	if(Pin) then
-		quantizer:AddPin(Pin)
-		pins[Pin] = true
-	end
-end
-
-local function OnPinsRemoved(self)
-	for Pin in next, pins do
-		quantizer:RemovePin(Pin)
-	end
-
-	table.wipe(pins)
-end
-
-local Handler = CreateFrame('Frame')
-Handler:RegisterEvent('ADDON_LOADED')
-Handler:SetScript('OnEvent', function(self, event, addOnName)
-	if(addOnName == 'WorldFlightMap') then
-		for provider in next, WorldMapFrame.dataProviders do
-			if(provider.AddFlightNode) then
-				hooksecurefunc(provider, 'RefreshAllData', OnDataRefreshed)
-				return
-			end
+local function Inject()
+	for provider in next, WorldMapFrame.dataProviders do
+		if(provider.AddFlightNode) then
+			hooksecurefunc(provider, 'RefreshAllData', OnDataRefreshed)
+			return
 		end
 	end
-end)
+end
+
+if(IsAddOnLoaded('WorldFlightMap')) then
+	Inject()
+else
+	local Handler = CreateFrame('Frame')
+	Handler:RegisterEvent('ADDON_LOADED')
+	Handler:SetScript('OnEvent', function(self, event, addOnName)
+		if(addOnName == 'WorldFlightMap') then
+			Inject()
+			self:UnregisterEvent(event)
+		end
+	end)
+end
