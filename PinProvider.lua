@@ -25,9 +25,6 @@ local parentMaps = {
 		[896] = true, -- Drustvar
 		[942] = true, -- Stormsong Valley
 	},
-	[12] = { -- Kalimdor
-		[62] = true, -- Darkshore (for War of Thorns)
-	}
 }
 
 local function AdjustedMapID(mapID)
