@@ -25,6 +25,9 @@ local parentMaps = {
 		[896] = true, -- Drustvar
 		[942] = true, -- Stormsong Valley
 	},
+	[13] = { -- Eastern Kingdoms
+		[14] = true, -- Arathi Highlands (Warfronts)
+	},
 }
 
 local function AdjustedMapID(mapID)
