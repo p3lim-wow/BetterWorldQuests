@@ -13,4 +13,6 @@
 	<Script file='Argus/Title.lua'/>
 	<Script file='Argus/Vindicaar.lua'/>
 	<Script file='Argus/WorldFlightMap.lua'/>
+
+	<Script file='Helpers/Barrels.lua'/>
 </Ui>
