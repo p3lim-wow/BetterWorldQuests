@@ -88,6 +88,7 @@ function DataProvider:RefreshAllData()
 					Pin:SetPosition(questInfo.x, questInfo.y)
 
 					if(self.pingPin and self.pingPin:IsAttachedToQuest(questID)) then
+						self.pingPin:SetScalingLimits(1, 1, 1)
 						self.pingPin:SetPosition(questInfo.x, questInfo.y)
 					end
 				else
