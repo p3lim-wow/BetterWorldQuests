@@ -211,6 +211,7 @@ local function OrigProviderOnRemoved(self, mapCanvas)
 	Map:UnregisterCallback('SetFocusedQuestID', self.setFocusedQuestIDCallback)
 	Map:UnregisterCallback('ClearFocusedQuestID', self.clearFocusedQuestIDCallback)
 	Map:UnregisterCallback('SetBountyQuestID', self.setBountyQuestIDCallback)
+	Map:UnregisterCallback('PingQuestID', self.pingQuestIDCallback) -- missing in OnRemoved
 
 	MapCanvasDataProviderMixin.OnRemoved(self, mapCanvas)
 end
