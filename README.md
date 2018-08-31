@@ -13,8 +13,8 @@ Features:
 	- Displays World Quests on said map
 	- Support for [World Flight Map](https://www.curseforge.com/wow/addons/worldflightmap) on said map
 - Adds helpers for certain types of World Quests
-	- Marks barrels with raid icons for "Barrels o' Fun"
-	- Rebinds <kbd>SpaceBar</kbd> to aid navigation for "Make Loh Go"
+	- Mouse over barrels to mark them with raid icons for "Barrels o' Fun"
+	- Spam <kbd>SpaceBar</kbd> to finish "Make Loh Go"
 
 Due to the nature of this addon, any other World Quest-esque addons are probably incompatible.
 
