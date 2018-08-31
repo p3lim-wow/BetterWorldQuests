@@ -1,7 +1,7 @@
 # Better World Quests
 
 This is an addon for the popular MMORPG "World of Warcraft".  
-<!-- It can be downloaded at [Curse](//mods.curse.com/addons/wow/interactivewormholes) or at [WoWInterface](//wowinterface.com/downloads/info24119). -->
+It can be downloaded at [Curse](https://www.curseforge.com/wow/addons/better-world-quests) or at [WoWInterface](//wowinterface.com/downloads/info24797).
 
 ## Description
 
@@ -12,7 +12,7 @@ Features:
 - Displays World Quests on the Argus overview map
 - Displays World Quests on the "parent" maps
 - Replaces the default World Quest pins with "improved" one
-	- "Improved" is very subjective
+	- "Improved" is very opinionated
 - Adds helpers for certain types of World Quests
 	- Marks barrels with raid icons for "Barrels o' Fun"
 	- Rebinds <kbd>SpaceBar</kbd> to aid navigation for "Make Loh Go"
