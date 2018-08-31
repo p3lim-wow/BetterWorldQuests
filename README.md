@@ -6,13 +6,12 @@ It can be downloaded at [Curse](https://www.curseforge.com/wow/addons/better-wor
 ## Description
 
 Features:
-- Improve the Argus overview map with actual working artwork
-	- Displays World Quests on said map
-	- Support for [World Flight Map](https://www.curseforge.com/wow/addons/worldflightmap) on said map
-- Displays World Quests on the Argus overview map
-- Displays World Quests on the "parent" maps
 - Replaces the default World Quest pins with "improved" one
 	- "Improved" is very opinionated
+- Displays World Quests on the "parent" maps
+- Improves the Argus overview map with actual working artwork
+	- Displays World Quests on said map
+	- Support for [World Flight Map](https://www.curseforge.com/wow/addons/worldflightmap) on said map
 - Adds helpers for certain types of World Quests
 	- Marks barrels with raid icons for "Barrels o' Fun"
 	- Rebinds <kbd>SpaceBar</kbd> to aid navigation for "Make Loh Go"
