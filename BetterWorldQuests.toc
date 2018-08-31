@@ -4,4 +4,7 @@
 ## Title: Better World Quests
 ## Notes: Improves the World Quest POIs on the map
 
+## X-Curse-Project-ID: 302035
+## X-WoWI-ID: 24797
+
 BetterWorldQuests.xml
