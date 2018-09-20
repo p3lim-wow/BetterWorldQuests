@@ -167,5 +167,5 @@ end
 
 function Handler:Next()
 	local nextAction = quests[currentQuestID][currentCheckpoint][nextActionIndex]
-	SetOverrideBindingClick(self, false, 'SPACE', BUTTON:format(nextAction))
+	SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(nextAction))
 end
