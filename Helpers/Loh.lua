@@ -59,6 +59,10 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 		for questID in next, quests do
 			if(C_QuestLog.IsOnQuest(questID)) then
 				self:Watch(questID)
+				if(self:GetCheckpoint() > 0) then
+					self:Control()
+					self:UpdateCheckpoint()
+				end
 				break
 			end
 		end
@@ -132,7 +136,7 @@ function Handler:UpdateAction(_, _, spellID)
 	self:Next()
 end
 
-function Handler:UpdateCheckpoint()
+function Handler:GetCheckpoint()
 	local checkpoint
 	local index = 1
 	while(true) do
@@ -148,6 +152,11 @@ function Handler:UpdateCheckpoint()
 		index = index + 1
 	end
 
+	return checkpoint
+end
+
+function Handler:UpdateCheckpoint()
+	local checkpoint = self:GetCheckpoint()
 	if(checkpoint ~= currentCheckpoint) then
 		currentCheckpoint = checkpoint
 		nextActionIndex = 1
