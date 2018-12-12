@@ -205,23 +205,9 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	end
 end
 
-local function OrigProviderOnRemoved(self, mapCanvas)
-	-- temporary fix to prevent error when removing the original world quest provider, I've notified
-	-- Blizzard developers directly about this issue and it should be resolved soon™
-	local Map = self:GetMap()
-	Map:UnregisterCallback('SetFocusedQuestID', self.setFocusedQuestIDCallback)
-	Map:UnregisterCallback('ClearFocusedQuestID', self.clearFocusedQuestIDCallback)
-	Map:UnregisterCallback('SetBountyQuestID', self.setBountyQuestIDCallback)
-	Map:UnregisterCallback('PingQuestID', self.pingQuestIDCallback) -- missing in OnRemoved
-
-	MapCanvasDataProviderMixin.OnRemoved(self, mapCanvas)
-end
-
 -- we need to remove the default data provider mixin
 for provider in next, WorldMapFrame.dataProviders do
 	if(provider.GetPinTemplate and provider.GetPinTemplate() == 'WorldMap_WorldQuestPinTemplate') then
-		-- BUG: the OnRemoved method is broken, so we replace it before we remove the provider
-		provider.OnRemoved = OrigProviderOnRemoved
 		WorldMapFrame:RemoveDataProvider(provider)
 	end
 end
