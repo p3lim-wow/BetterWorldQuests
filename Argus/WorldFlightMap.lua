@@ -1,9 +1,11 @@
 local pins = {}
 
+local ARGUS = 905
+
 local function OnDataRefreshed(self)
 	local Map = self:GetMap()
-	if(Map:GetMapID() == 905) then
-		local taxiNodes = C_TaxiMap.GetAllTaxiNodes()
+	if(Map:GetMapID() == ARGUS) then
+		local taxiNodes = C_TaxiMap.GetAllTaxiNodes(ARGUS)
 		for index, taxiNodeData in next, taxiNodes do
 			local Pin = Map:AcquirePin('FlightMap_FlightPointPinTemplate')
 			self.slotIndexToPin[taxiNodeData.slotIndex] = Pin
