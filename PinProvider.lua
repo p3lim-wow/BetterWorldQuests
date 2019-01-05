@@ -28,6 +28,9 @@ local parentMaps = {
 	[13] = { -- Eastern Kingdoms
 		[14] = true, -- Arathi Highlands (Warfronts)
 	},
+	[12] = { -- Kalimdor
+		[62] = true, -- Darkshore (Warfronts)
+	},
 }
 
 local function AdjustedMapID(mapID)
