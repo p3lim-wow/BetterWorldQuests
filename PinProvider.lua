@@ -32,6 +32,7 @@ local parentMaps = {
 		[62] = true, -- Darkshore (Warfronts)
 	},
 }
+local factionAssaultAtlasName = UnitFactionGroup('player') == "Horde" and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
 local function AdjustedMapID(mapID)
 	-- this will replace the Argus map ID with the one used by the taxi UI, since one of the
@@ -201,7 +202,13 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 		elseif(worldQuestType == LE_QUEST_TAG_TYPE_RAID) then
 			self.Indicator:SetAtlas('Raid')
 			self.Indicator:Show()
-		-- elseif(worldQuestType == LE_QUEST_TAG_TYPE_INVASION) then
+		elseif(worldQuestType == LE_QUEST_TAG_TYPE_INVASION) then
+			self.Indicator:SetAtlas('worldquest-icon-burninglegion')
+			self.Indicator:Show()
+		elseif(worldQuestType == LE_QUEST_TAG_TYPE_FACTION_ASSAULT) then
+			self.Indicator:SetAtlas(factionAssaultAtlasName)
+			self.Indicator:SetSize(38, 38)
+			self.Indicator:Show()
 		else
 			self.Indicator:Hide()
 		end
