@@ -32,7 +32,7 @@ local parentMaps = {
 		[62] = true, -- Darkshore (Warfronts)
 	},
 }
-local factionAssaultAtlasName = UnitFactionGroup('player') == "Horde" and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
+local factionAssaultAtlasName = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
 local function AdjustedMapID(mapID)
 	-- this will replace the Argus map ID with the one used by the taxi UI, since one of the
