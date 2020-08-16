@@ -1,5 +1,12 @@
 local parentMaps = {
 	-- list of all continents and their sub-zones that have world quests
+	
+	[1550] = { -- Shadowlands
+		[1525] = true, -- Revendreth 9.0
+		[1533] = true, -- Bastion 9.0
+		[1536] = true, -- Maldraxxus 9.0
+		[1565] = true, -- Ardenwald 9.0
+	},
 	[619] = { -- Broken Isles
 		[630] = true, -- Azsuna
 		[641] = true, -- Val'sharah
@@ -183,7 +190,7 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	self.Bounty:SetShown(bountyQuestID and IsQuestCriteriaForBounty(questID, bountyQuestID))
 
 	local Indicator = self.Indicator
-	local _, _, worldQuestType, _, _, professionID = GetQuestTagInfo(questID)
+	local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
 	if(worldQuestType == LE_QUEST_TAG_TYPE_PVP) then
 		self.Indicator:SetAtlas('Warfronts-BaseMapIcons-Empty-Barracks-Minimap')
 		self.Indicator:SetSize(58, 58)
