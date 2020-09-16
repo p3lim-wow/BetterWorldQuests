@@ -1,11 +1,10 @@
 local parentMaps = {
 	-- list of all continents and their sub-zones that have world quests
-	
 	[1550] = { -- Shadowlands
-		[1525] = true, -- Revendreth 9.0
-		[1533] = true, -- Bastion 9.0
-		[1536] = true, -- Maldraxxus 9.0
-		[1565] = true, -- Ardenwald 9.0
+		[1525] = true, -- Revendreth
+		[1533] = true, -- Bastion
+		[1536] = true, -- Maldraxxus
+		[1565] = true, -- Ardenwald
 	},
 	[619] = { -- Broken Isles
 		[630] = true, -- Azsuna
