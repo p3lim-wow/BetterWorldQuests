@@ -186,7 +186,7 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 
 	-- update our own widgets
 	local bountyQuestID = self.dataProvider:GetBountyQuestID()
-	self.Bounty:SetShown(bountyQuestID and IsQuestCriteriaForBounty(questID, bountyQuestID))
+	self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
 
 	local Indicator = self.Indicator
 	local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
