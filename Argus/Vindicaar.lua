@@ -9,7 +9,7 @@ local function UpdateVindicaar(self)
 			-- only show if we're not viewing taxi destinations
 			for _, info in next, C_TaxiMap.GetTaxiNodesForMap(994) do
 				if(self:ShouldShowTaxiNode(faction, info)) then
-					if(info.textureKitPrefix:find('Vindicaar') and info.atlasName == 'TaxiNode_Neutral') then
+					if(info.textureKitPrefix and info.textureKitPrefix:find('Vindicaar') and info.atlasName == 'TaxiNode_Neutral') then
 						Map:AcquirePin('FlightPointPinTemplate', info) -- TODO: SetSize(39, 42)
 					end
 				end
