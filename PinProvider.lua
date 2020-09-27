@@ -1,3 +1,5 @@
+local WOW_9 = select(4, GetBuildInfo()) >= 90000
+
 local parentMaps = {
 	-- list of all continents and their sub-zones that have world quests
 	[1550] = { -- Shadowlands
@@ -186,10 +188,20 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 
 	-- update our own widgets
 	local bountyQuestID = self.dataProvider:GetBountyQuestID()
-	self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
+	if(WOW_9) then
+		self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
+	else
+		self.Bounty:SetShown(bountyQuestID and IsQuestCriteriaForBounty(questID, bountyQuestID))
+	end
 
 	local Indicator = self.Indicator
-	local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
+	local _, worldQuestType, professionID
+	if(WOW_9) then
+		_, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
+	else
+		_, _, worldQuestType, _, _, professionID = GetQuestTagInfo(questID)
+	end
+
 	if(worldQuestType == LE_QUEST_TAG_TYPE_PVP) then
 		self.Indicator:SetAtlas('Warfronts-BaseMapIcons-Empty-Barracks-Minimap')
 		self.Indicator:SetSize(58, 58)
