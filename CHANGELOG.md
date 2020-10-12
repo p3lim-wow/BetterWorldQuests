@@ -1,3 +1,8 @@
+### Changes in 90000.4-Release:
+
+- Changed: Update Interface version
+- Fixed: Shadowlands compatibility
+
 ### Changes in 80100.3-Release:
 
 - Added: Darkshore on Kalimdor map (thanks @xmyno)
