@@ -38,6 +38,7 @@ local parentMaps = {
 		[62] = true, -- Darkshore (Warfronts)
 	},
 }
+
 local factionAssaultAtlasName = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
 local function AdjustedMapID(mapID)
@@ -189,29 +190,30 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
 
 	local Indicator = self.Indicator
-	local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
-	if(worldQuestType == LE_QUEST_TAG_TYPE_PVP) then
+	local questInfo = C_QuestLog.GetQuestTagInfo(questID)
+	-- local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
+	if(questInfo.worldQuestType == Enum.QuestTagType.PvP) then
 		self.Indicator:SetAtlas('Warfronts-BaseMapIcons-Empty-Barracks-Minimap')
 		self.Indicator:SetSize(58, 58)
 		self.Indicator:Show()
 	else
 		self.Indicator:SetSize(44, 44)
-		if(worldQuestType == LE_QUEST_TAG_TYPE_PET_BATTLE) then
+		if(questInfo.worldQuestType == Enum.QuestTagType.PetBattle) then
 			self.Indicator:SetAtlas('WildBattlePetCapturable')
 			self.Indicator:Show()
-		elseif(worldQuestType == LE_QUEST_TAG_TYPE_PROFESSION) then
-			self.Indicator:SetAtlas(WORLD_QUEST_ICONS_BY_PROFESSION[professionID])
+		elseif(questInfo.worldQuestType == Enum.QuestTagType.Profession) then
+			self.Indicator:SetAtlas(WORLD_QUEST_ICONS_BY_PROFESSION[questInfo.tradeskillLineID])
 			self.Indicator:Show()
-		elseif(worldQuestType == LE_QUEST_TAG_TYPE_DUNGEON) then
+		elseif(questInfo.worldQuestType == Enum.QuestTagType.Dungeon) then
 			self.Indicator:SetAtlas('Dungeon')
 			self.Indicator:Show()
-		elseif(worldQuestType == LE_QUEST_TAG_TYPE_RAID) then
+		elseif(questInfo.worldQuestType == Enum.QuestTagType.Raid) then
 			self.Indicator:SetAtlas('Raid')
 			self.Indicator:Show()
-		elseif(worldQuestType == LE_QUEST_TAG_TYPE_INVASION) then
+		elseif(questInfo.worldQuestType == Enum.QuestTagType.Invasion) then
 			self.Indicator:SetAtlas('worldquest-icon-burninglegion')
 			self.Indicator:Show()
-		elseif(worldQuestType == LE_QUEST_TAG_TYPE_FACTION_ASSAULT) then
+		elseif(questInfo.worldQuestType == Enum.QuestTagType.FactionAssault) then
 			self.Indicator:SetAtlas(factionAssaultAtlasName)
 			self.Indicator:SetSize(38, 38)
 			self.Indicator:Show()
