@@ -1,3 +1,11 @@
+### Changes in 90000.6-Release:
+
+- Added: Helper for 'We'll Make an Aspirant Out of You' in Bastion
+- Added: Helper for 'A Steward for Every Occasion' in Bastion
+- Changed: Update Interface version
+- Fixed: Indicators not showing correctly in Shadowlands
+- Removed: Compatibility code for 8.0
+
 ### Changes in 90000.5-Release:
 
 - Fixed: Incorrect Interface version
