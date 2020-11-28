@@ -13,8 +13,10 @@ Features:
 	- Displays World Quests on said map
 	- Support for [World Flight Map](https://www.curseforge.com/wow/addons/worldflightmap) on said map
 - Adds helpers for certain types of World Quests
-	- Mouse over barrels to mark them with raid icons for "Barrels o' Fun"
-	- Spam <kbd>SpaceBar</kbd> to finish "Make Loh Go"
+	- Mouse over barrels to mark them with raid icons for "[Barrels o' Fun](https://www.wowhead.com/search?q=barrels+o%27+fun)"
+	- Mouse over stewards to mark the correct one for "[A Steward for Every Occasion](https://www.wowhead.com/quest=60565)"
+	- Spam <kbd>SpaceBar</kbd> to finish "[Make Loh Go](https://www.wowhead.com/search?q=Make+Loh+Go)"
+	- Spam <kbd>SpaceBar</kbd> to finish "[We'll Make an Aspirant Out of You](https://www.wowhead.com/quest=59585)"
 
 Due to the nature of this addon, any other World Quest-esque addons are probably incompatible.
 
