@@ -89,6 +89,8 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 		end
 	elseif(event == 'UNIT_AURA') then
 		self:UpdateCheckpoint()
+	elseif(event == 'PLAYER_REGEN_ENABLED') then
+		ClearOverrideBindings(self)
 	end
 end)
 
@@ -127,7 +129,11 @@ function Handler:Uncontrol()
 	self:UnregisterEvent('UNIT_SPELLCAST_SUCCEEDED')
 	self:UnregisterEvent('UNIT_AURA')
 
-	ClearOverrideBindings(self)
+	if InCombatLockdown() then
+		self:RegisterEvent('PLAYER_REGEN_ENABLED')
+	else
+		ClearOverrideBindings(self)
+	end
 end
 
 function Handler:UpdateAction(_, _, spellID)
