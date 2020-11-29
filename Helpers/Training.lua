@@ -21,6 +21,26 @@ local spells = {
 	},
 }
 
+local locale = GetLocale()
+local trainerName = 'Trainer Ikaros'
+if locale == 'deDE' then
+	trainerName = 'Ausbilder Ikaros'
+elseif locale == 'esES' or locale == 'esMX' then
+	trainerName = 'Instructor Ikaros'
+elseif locale == 'frFR' then
+	trainerName = 'Instructeur Ikaros'
+elseif locale == 'itIT' then
+	trainerName = 'Istruttore Ikaros'
+elseif locale == 'koKR' then
+	trainerName = '훈련사 이카로스'
+elseif locale == 'ptBR' then
+	trainerName = 'Treinador Ikaros'
+elseif locale == 'ruRU' then
+	trainerName = 'Укротитель Икар'
+elseif locale == 'zhCN' or locale == 'zhTW' then
+	trainerName = '训练师伊卡洛斯'
+end
+
 local function GetNPCIDByGUID(guid)
 	return guid and (tonumber((string.match(guid, 'Creature%-.-%-.-%-.-%-.-%-(.-)%-')) or ''))
 end
@@ -46,7 +66,7 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 		end
 	elseif(event == 'QUEST_REMOVED') then
 		local questID = ...
-		if(questID == 59585) then
+		if questID == 59585 then
 			self:Unwatch()
 		end
 	elseif event == 'UNIT_AURA' then
@@ -59,11 +79,9 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 			end
 		end
 	elseif event == 'CHAT_MSG_MONSTER_SAY' then
-		-- local msg, sender = ...
-		-- if sender == 'Trainer Ikaros' then
-		local msg, _, _, _, _, _, _, _, _, _, _, guid = ...
-		if guid == 165239 then -- Trainer Ikaros
-			local actionID = actionMessages[msg:gsub('.', '')]
+		local msg, sender = ...
+		if sender == trainerName then -- Trainer Ikaros
+			local actionID = actionMessages[(msg:gsub('%.', ''))]
 			if actionID then
 				C_Timer.After(0.5, function()
 					-- wait a split second to get "Perfect"
@@ -91,7 +109,7 @@ end
 function Handler:Unwatch()
 	self:UnregisterEvent('UNIT_AURA')
 	self:UnregisterEvent('QUEST_REMOVED')
-	ClearOverrideBindings(self)
+	self:Uncontrol()
 end
 
 function Handler:Control(spellSet)
