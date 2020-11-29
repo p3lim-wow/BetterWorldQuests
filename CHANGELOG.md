@@ -1,3 +1,8 @@
+### Changes in 90000.7-Release:
+
+- Fixed: Errors when doing Loh world quest
+- Fixed: Training world quest helper not working
+
 ### Changes in 90000.6-Release:
 
 - Added: Helper for 'We'll Make an Aspirant Out of You' in Bastion
