@@ -98,6 +98,9 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 			-- bind to something useless to avoid spamming jump
 			SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(4))
 		end
+	elseif(event == 'PLAYER_REGEN_ENABLED') then
+		ClearOverrideBindings(self)
+		self:UnregisterEvent(event)
 	end
 end)
 
@@ -133,7 +136,11 @@ function Handler:Uncontrol()
 	self:UnregisterEvent('UNIT_SPELLCAST_SUCCEEDED')
 	self:UnregisterEvent('CHAT_MSG_MONSTER_SAY')
 
-	ClearOverrideBindings(self)
+	if InCombatLockdown() then
+		self:RegisterEvent('PLAYER_REGEN_ENABLED')
+	else
+		ClearOverrideBindings(self)
+	end
 end
 
 function Handler:Message()

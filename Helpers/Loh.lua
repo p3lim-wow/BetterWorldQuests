@@ -91,6 +91,7 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 		self:UpdateCheckpoint()
 	elseif(event == 'PLAYER_REGEN_ENABLED') then
 		ClearOverrideBindings(self)
+		self:UnregisterEvent(event)
 	end
 end)
 
