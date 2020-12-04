@@ -2,13 +2,12 @@ local HBD = LibStub('HereBeDragons-2.0')
 
 local BASTION = 1533
 local coordinateToHelper = {
-	[169022] = {0.5291, 0.4579},
-	[169023] = {0.5306, 0.4750},
-	[169024] = {0.5258, 0.4660},
-	[169025] = {0.5199, 0.4846},
-	[169026] = {0.5251, 0.4877},
-	[169027] = {0.5333, 0.4701},
-	-- [?] = {0.5265, 0.4744},
+	[169022] = {{0.5291, 0.4579}},
+	[169023] = {{0.5306, 0.4750}},
+	[169024] = {{0.5263, 0.4617}, {0.5258, 0.4660}},
+	[169025] = {{0.5199, 0.4846}, {0.5265, 0.4744}},
+	[169026] = {{0.5251, 0.4877}, {0.5182, 0.4540}},
+	[169027] = {{0.5333, 0.4701}},
 }
 
 local function getClosestQuestNPC()
@@ -21,11 +20,13 @@ local function getClosestQuestNPC()
 	end
 
 	local playerX, playerY = pos:GetXY()
-	for npcID, coords in next, coordinateToHelper do
-		local distance = HBD:GetZoneDistance(BASTION, playerX, playerY, BASTION, coords[1], coords[2])
-		if distance < closestDistance then
-			closestNPC = npcID
-			closestDistance = distance
+	for npcID, data in next, coordinateToHelper do
+		for _, coords in next, data do
+			local distance = HBD:GetZoneDistance(BASTION, playerX, playerY, BASTION, coords[1], coords[2])
+			if distance < closestDistance then
+				closestNPC = npcID
+				closestDistance = distance
+			end
 		end
 	end
 
