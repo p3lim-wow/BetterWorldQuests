@@ -1,3 +1,8 @@
+### Changes in 90000.8-Release:
+
+- Added: More locations for the chores world quest
+- Fixed: More errors when entering/leaving combat
+
 ### Changes in 90000.7-Release:
 
 - Fixed: Errors when doing Loh world quest
