@@ -1,3 +1,9 @@
+### Changes in 90000.9-Release:
+
+- Added: Helper for 'Tough Crowd' in Ardenweald
+- Added: Even more locations for the chores world quest
+- Fixed: Even more errors when entering/leaving combat
+
 ### Changes in 90000.8-Release:
 
 - Added: More locations for the chores world quest
