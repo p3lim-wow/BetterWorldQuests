@@ -1,5 +1,5 @@
 local MESSAGE = 'Spam <SpaceBar> to complete!'
-local BUTTON = 'OverrideActionBarButton%d'
+local BUTTON = 'ACTIONBUTTON%d'
 
 local quests = {
 	[51632] = { -- Make Loh Go (Tiragarde Sound)
@@ -174,5 +174,5 @@ end
 
 function Handler:Next()
 	local nextAction = quests[currentQuestID][currentCheckpoint][nextActionIndex]
-	SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(nextAction))
+	SetOverrideBinding(self, true, 'SPACE', BUTTON:format(nextAction))
 end

@@ -1,5 +1,5 @@
 local MESSAGE = 'Stand in circle and spam <SpaceBar> to complete!'
-local BUTTON = 'OverrideActionBarButton%d'
+local BUTTON = 'ACTIONBUTTON%d'
 
 local actionMessages = {}
 local actionResetSpells = {}
@@ -86,7 +86,7 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 				C_Timer.After(0.5, function()
 					-- wait a split second to get "Perfect"
 					ClearOverrideBindings(self)
-					SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(actionID))
+					SetOverrideBinding(self, true, 'SPACE', BUTTON:format(actionID))
 				end)
 			end
 		end
@@ -96,7 +96,7 @@ Handler:SetScript('OnEvent', function(self, event, ...)
 			ClearOverrideBindings(self)
 
 			-- bind to something useless to avoid spamming jump
-			SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(4))
+			SetOverrideBinding(self, true, 'SPACE', BUTTON:format(4))
 		end
 	elseif(event == 'PLAYER_REGEN_ENABLED') then
 		ClearOverrideBindings(self)
@@ -124,7 +124,7 @@ function Handler:Control(spellSet)
 	end
 
 	-- bind to something useless to avoid spamming jump
-	SetOverrideBindingClick(self, true, 'SPACE', BUTTON:format(4))
+	SetOverrideBinding(self, true, 'SPACE', BUTTON:format(4))
 
 	self:Message()
 
