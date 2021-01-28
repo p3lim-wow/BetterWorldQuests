@@ -32,3 +32,4 @@ Helpers/Loh.lua
 Helpers/Training.lua
 Helpers/Chores.lua
 Helpers/Boggarts.lua
+Helpers/Unknown.lua
