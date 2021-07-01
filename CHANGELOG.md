@@ -1,3 +1,9 @@
+### Changes in 90100.10-Release:
+
+- Added: Support for "Into the Unknown" daily quest in Ardenweald
+- Changed: Update Interface version
+- Fixed: Compatibility with action bar addons
+
 ### Changes in 90000.9-Release:
 
 - Added: Helper for 'Tough Crowd' in Ardenweald
