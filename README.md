@@ -19,6 +19,7 @@ Features:
 	- Spam <kbd>SpaceBar</kbd> to finish "[Make Loh Go](https://www.wowhead.com/search?q=Make+Loh+Go)"
 	- Spam <kbd>SpaceBar</kbd> to finish "[We'll Make an Aspirant Out of You](https://www.wowhead.com/quest=59585)"
 	- Spam <kbd>SpaceBar</kbd> to finish "[A More Civilized Way](https://ptr.wowhead.com/quest=64271)"
+	- Spam <kbd>SpaceBar</kbd> to finish "[The Weight of Stone](https://www.wowhead.com/quest=64018)"
 	- Spam <kbd>SpaceBar</kbd> to finish "[Taming the Wilderling](https://www.wowhead.com/npc=180014)"
 
 Due to the nature of this addon, any other World Quest-esque addons are probably incompatible.

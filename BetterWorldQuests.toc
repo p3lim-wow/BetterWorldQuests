@@ -46,3 +46,4 @@ Helpers/Chores.lua
 Helpers/Boggarts.lua
 Helpers/Unknown.lua
 Helpers/Wilderling.lua
+Helpers/Supplies.lua
