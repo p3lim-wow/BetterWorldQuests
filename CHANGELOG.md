@@ -1,3 +1,9 @@
+### Changes in 90100.11-Release:
+
+- Added: Support for 'The Weight of Stone' in Korthia
+- Added: Support for 'Taming the Wilderling' in Korthia
+- Added: Support for new "training" quest in Korthia
+
 ### Changes in 90100.10-Release:
 
 - Added: Support for "Into the Unknown" daily quest in Ardenweald
