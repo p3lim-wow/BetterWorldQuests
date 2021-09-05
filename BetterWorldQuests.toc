@@ -4,6 +4,7 @@
 ## Title: Better World Quests
 ## Notes: Improves the World Quest POIs on the map
 ## OptionalDeps: LibStub, CallbackHandler-1.0, HereBeDragons
+## SavedVariables: BetterWorldQuestsMigrate
 
 ## X-Curse-Project-ID: 302035
 ## X-WoWI-ID: 24797
@@ -27,3 +28,4 @@ Argus/Title.lua
 Argus/Vindicaar.lua
 Argus/WorldFlightMap.lua
 
+migrate.lua
