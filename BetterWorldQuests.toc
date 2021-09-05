@@ -12,18 +12,6 @@ libs\LibStub\LibStub.lua
 libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
 libs\HereBeDragons\HereBeDragons-2.0.lua
 
-locale\initialize.lua
-locale\deDE.lua
-locale\esES.lua
-locale\esMX.lua
-locale\frFR.lua
-locale\itIT.lua
-locale\koKR.lua
-locale\ptBR.lua
-locale\ruRU.lua
-locale\zhCN.lua
-locale\zhTW.lua
-
 BetterWorldQuests.xml
 
 PinProvider.lua
@@ -39,11 +27,3 @@ Argus/Title.lua
 Argus/Vindicaar.lua
 Argus/WorldFlightMap.lua
 
-Helpers/Barrels.lua
-Helpers/Loh.lua
-Helpers/Training.lua
-Helpers/Chores.lua
-Helpers/Boggarts.lua
-Helpers/Unknown.lua
-Helpers/Wilderling.lua
-Helpers/Supplies.lua
