@@ -1,3 +1,7 @@
+### Changes in 90100.12-Release:
+
+- Removed: Quest helpers, see addon "Quest Automation"
+
 ### Changes in 90100.11-Release:
 
 - Added: Support for 'The Weight of Stone' in Korthia
