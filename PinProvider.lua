@@ -5,6 +5,7 @@ local parentMaps = {
 		[1533] = true, -- Bastion
 		[1536] = true, -- Maldraxxus
 		[1565] = true, -- Ardenwald
+		[1543] = true, -- The Maw
 	},
 	[619] = { -- Broken Isles
 		[630] = true, -- Azsuna
