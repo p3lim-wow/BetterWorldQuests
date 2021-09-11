@@ -1,3 +1,7 @@
+### Changes in 90100.13-Release:
+
+- Added: World quests in The Maw on the Shadowlands map
+
 ### Changes in 90100.12-Release:
 
 - Removed: Quest helpers, see addon "Quest Automation"
