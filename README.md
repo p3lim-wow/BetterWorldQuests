@@ -1,7 +1,12 @@
 # Better World Quests
 
 This is an addon for the popular MMORPG "World of Warcraft".  
-It can be downloaded at [Curse](https://www.curseforge.com/wow/addons/better-world-quests) or at [WoWInterface](//wowinterface.com/downloads/info24797).
+It can be downloaded at one of the following sites:
+
+- [Curse](https://www.curseforge.com/wow/addons/better-world-quests)
+- [WoWInterface](https://wowinterface.com/downloads/info24797)
+- [Wago](https://addons.wago.io/addons/betterworldquests)
+- [GitHub](https://github.com/p3lim-wow/BetterWorldQuests/releases)
 
 ## Description
 
