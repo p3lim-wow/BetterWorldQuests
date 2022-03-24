@@ -10,9 +10,11 @@
 ## X-WoWI-ID: 24797
 ## X-Wago-ID: RBKppvKE
 
-libs\LibStub\LibStub.lua
-libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
-libs\HereBeDragons\HereBeDragons-2.0.lua
+#@non-debug@
+# libs\LibStub\LibStub.lua
+# libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+# libs\HereBeDragons\HereBeDragons-2.0.lua
+#@end-non-debug@
 
 BetterWorldQuests.xml
 
