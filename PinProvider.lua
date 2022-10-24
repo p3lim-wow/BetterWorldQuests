@@ -174,7 +174,7 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	-- set texture to the item/currency/value it rewards
 	local questID = self.questID
 	if(GetNumQuestLogRewards(questID) > 0) then
-		local _, texture, _, quality = GetQuestLogRewardInfo(1, questID)
+		local _, texture = GetQuestLogRewardInfo(1, questID)
 		SetPortraitToTexture(self.Texture, texture)
 		self.Texture:SetSize(self:GetSize())
 	elseif(GetNumQuestLogRewardCurrencies(questID) > 0) then
@@ -190,7 +190,6 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	local bountyQuestID = self.dataProvider:GetBountyQuestID()
 	self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
 
-	local Indicator = self.Indicator
 	local questInfo = C_QuestLog.GetQuestTagInfo(questID)
 	-- local _, _, worldQuestType, _, _, professionID = C_QuestLog.GetQuestTagInfo(questID)
 	if(questInfo.worldQuestType == Enum.QuestTagType.PvP) then

@@ -20,6 +20,9 @@ exclude_files = {}
 globals = {
 	-- savedvariables
 	'BetterWorldQuestsMigrate',
+
+	-- exposed globals
+	'BetterWorldQuestPinMixin',
 }
 
 read_globals = {
