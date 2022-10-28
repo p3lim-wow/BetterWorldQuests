@@ -17,11 +17,6 @@ local parentMaps = {
 		[790] = true, -- Eye of Azshara (world version)
 		[646] = true, -- Broken Shore
 	},
-	[994] = { -- Argus (our modified one, the original ID is 905)
-		[830] = true, -- Krokuun
-		[885] = true, -- Antoran Wastes
-		[882] = true, -- Mac'Aree
-	},
 	[875] = { -- Zandalar
 		[862] = true, -- Zuldazar
 		[864] = true, -- Vol'Dun
@@ -42,12 +37,6 @@ local parentMaps = {
 
 local factionAssaultAtlasName = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
-local function AdjustedMapID(mapID)
-	-- this will replace the Argus map ID with the one used by the taxi UI, since one of the
-	-- features of this addon is replacing the Argus map art with the taxi UI one
-	return mapID == 905 and 994 or mapID
-end
-
 -- create a new data provider that will display the world quests on zones from the list above,
 -- based on WorldQuestDataProviderMixin
 local DataProvider = CreateFromMixins(WorldQuestDataProviderMixin)
@@ -67,7 +56,7 @@ function DataProvider:ShouldShowQuest(questInfo)
 		return false
 	else
 		-- returns true if the given quest is a world quest on one of the maps in our list
-		local mapID = AdjustedMapID(self:GetMap():GetMapID())
+		local mapID = self:GetMap():GetMapID()
 		local questMapID = questInfo.mapID
 		if(mapID == questMapID or (parentMaps[mapID] and parentMaps[mapID][questMapID])) then
 			return HaveQuestData(questID) and QuestUtils_IsQuestWorldQuest(questID)
@@ -84,7 +73,7 @@ function DataProvider:RefreshAllData()
 	end
 
 	local Map = self:GetMap()
-	local mapID = AdjustedMapID(Map:GetMapID())
+	local mapID = Map:GetMapID()
 
 	local quests = mapID and C_TaskQuest.GetQuestsForPlayerByMapID(mapID)
 	if(quests) then
@@ -155,7 +144,7 @@ function BetterWorldQuestPinMixin:OnLoad()
 end
 
 local function IsParentMap(mapID)
-	return not not parentMaps[AdjustedMapID(mapID)]
+	return not not parentMaps[mapID]
 end
 
 function BetterWorldQuestPinMixin:RefreshVisuals()

@@ -19,14 +19,3 @@
 BetterWorldQuests.xml
 
 PinProvider.lua
-
-Argus/ZoneInfo.lua
-Argus/Map.lua
-Argus/Bounty.lua
-Argus/Highlight.lua
-Argus/Navigate.lua
-Argus/Players.lua
-Argus/Rifts.lua
-Argus/Title.lua
-Argus/Vindicaar.lua
-Argus/WorldFlightMap.lua
