@@ -30,5 +30,3 @@ Argus/Rifts.lua
 Argus/Title.lua
 Argus/Vindicaar.lua
 Argus/WorldFlightMap.lua
-
-migrate.lua
