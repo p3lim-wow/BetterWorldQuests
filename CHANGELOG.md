@@ -1,3 +1,8 @@
+### Changes in 100000.16-Release:
+
+- Changed: Update Interface version
+- Removed: Argus map support (it's a pain to maintain)
+
 ### Changes in 90200.15-Release:
 
 - Changed: Update Interface version
