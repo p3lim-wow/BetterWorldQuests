@@ -1,3 +1,8 @@
+### Changes in 100002.17-Release:
+
+- Changed: Update Interface version
+- Fixed: Compatibility with 10.0.2
+
 ### Changes in 100000.16-Release:
 
 - Changed: Update Interface version
