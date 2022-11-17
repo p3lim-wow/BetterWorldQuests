@@ -163,7 +163,11 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	-- set texture to the item/currency/value it rewards
 	local questID = self.questID
 	if GetNumQuestLogRewards(questID) > 0 then
-		local _, texture = GetQuestLogRewardInfo(1, questID)
+		local _, texture, _, _, _, itemID = GetQuestLogRewardInfo(1, questID)
+		if C_Item.IsAnimaItemByID(itemID) then
+			texture = 3528287 -- from item "Resonating Anima Core"
+		end
+
 		SetPortraitToTexture(self.Texture, texture)
 		self.Texture:SetSize(self:GetSize())
 	elseif GetNumQuestLogRewardCurrencies(questID) > 0 then
