@@ -1,3 +1,8 @@
+### Changes in 100002.18-Release:
+
+- Added: Support for Dragon Isles
+- Changed: Consistent anima reward icons (better late then never)
+
 ### Changes in 100002.17-Release:
 
 - Changed: Update Interface version
