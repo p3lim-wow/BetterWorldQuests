@@ -1,5 +1,11 @@
 local PARENT_MAPS = {
 	-- list of all continents and their sub-zones that have world quests
+	[1978] = { -- Dragon Isles
+		[2022] = true, -- The Walking Shores
+		[2023] = true, -- Ohn'ahran Plains
+		[2024] = true, -- The Azure Span
+		[2025] = true, -- Thaldraszus
+	},
 	[1550] = { -- Shadowlands
 		[1525] = true, -- Revendreth
 		[1533] = true, -- Bastion
