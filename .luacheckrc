@@ -62,6 +62,7 @@ read_globals = {
 	'C_PetJournal',
 	'C_QuestLog',
 	'C_TaskQuest',
+	'C_Item',
 
 	-- API
 	'hooksecurefunc',
