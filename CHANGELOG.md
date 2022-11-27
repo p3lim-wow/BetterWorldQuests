@@ -1,3 +1,7 @@
+### Changes in 100002.19-Release:
+
+- Added: Holding down Alt key will temporarily hide all world quest pins
+
 ### Changes in 100002.18-Release:
 
 - Added: Support for Dragon Isles
