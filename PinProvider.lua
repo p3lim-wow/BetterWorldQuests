@@ -43,6 +43,8 @@ local PARENT_MAPS = {
 
 local FACTION_ASSAULT_ATLAS = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
+local disabled = false
+
 -- create a new data provider that will display the world quests on zones from the list above,
 -- based on WorldQuestDataProviderMixin
 local DataProvider = CreateFromMixins(WorldQuestDataProviderMixin)
@@ -71,6 +73,10 @@ function DataProvider:ShouldShowQuest(questInfo)
 end
 
 function DataProvider:RefreshAllData()
+	if disabled then
+		return
+	end
+
 	-- map is updated, draw world quest pins
 	local pinsToRemove = {}
 	for questID in next, self.activePins do
@@ -227,3 +233,21 @@ for provider in next, WorldMapFrame.dataProviders do
 		WorldMapFrame:RemoveDataProvider(provider)
 	end
 end
+
+local function togglePinsVisibility(state)
+	for pin in WorldMapFrame:EnumeratePinsByTemplate(DataProvider:GetPinTemplate()) do
+		pin:SetShown(state)
+	end
+end
+
+local toggleEventHandler = CreateFrame('Frame')
+toggleEventHandler:RegisterEvent('MODIFIER_STATE_CHANGED')
+toggleEventHandler:SetScript('OnEvent', function()
+	if WorldMapFrame:IsShown() then
+		togglePinsVisibility(not IsAltKeyDown())
+	end
+end)
+
+WorldMapFrame:HookScript('OnHide', function()
+	togglePinsVisibility(true)
+end)
