@@ -39,6 +39,9 @@ local PARENT_MAPS = {
 	[12] = { -- Kalimdor
 		[62] = true, -- Darkshore (Warfronts)
 	},
+	[2025] = { -- Thaldraszus
+		[2085] = true, -- Primalist Tomorrow
+	}
 }
 
 local FACTION_ASSAULT_ATLAS = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
@@ -72,6 +75,38 @@ function DataProvider:ShouldShowQuest(questInfo)
 	end
 end
 
+function DataProvider:GetMapQuests(mapID)
+	if not mapID then
+		return
+	end
+
+	local quests = C_TaskQuest.GetQuestsForPlayerByMapID(mapID)
+	if mapID == 1978 or mapID == 2025 then
+		local primalistTomorrowQuests = C_TaskQuest.GetQuestsForPlayerByMapID(2085)
+		if primalistTomorrowQuests then
+			if not quests then
+				quests = {}
+			end
+
+			for index, questData in next, primalistTomorrowQuests do
+				-- we need to translate the coordinates so it works on the maps we show
+				questData.mapID = 2025 -- move it to the Thaldraszus map
+				if mapID == 1978 then
+					questData.x = 0.67 + (((index - 1) * 10) / 100)
+					questData.y = 0.59
+				else
+					questData.x = 0.7 + (((index - 1) * 10) / 100)
+					questData.y = 0.8
+				end
+
+				table.insert(quests, questData)
+			end
+		end
+	end
+
+	return quests
+end
+
 function DataProvider:RefreshAllData()
 	if disabled then
 		return
@@ -87,7 +122,7 @@ function DataProvider:RefreshAllData()
 	local Map = self:GetMap()
 	local mapID = Map:GetMapID()
 
-	local quests = mapID and C_TaskQuest.GetQuestsForPlayerByMapID(mapID)
+	local quests = self:GetMapQuests(mapID)
 	if quests then
 		for _, questInfo in next, quests do
 			if self:ShouldShowQuest(questInfo) and self:DoesWorldQuestInfoPassFilters(questInfo) then
