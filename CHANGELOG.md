@@ -1,3 +1,8 @@
+### Changes in 100002.20-Release:
+
+- Added: Primalist Tomorrow WQs on the Dragon Isles and Thaldraszus maps
+- Added: Cape of Stranglethorn WQs on the Eastern Kingdom map
+
 ### Changes in 100002.19-Release:
 
 - Added: Holding down Alt key will temporarily hide all world quest pins
