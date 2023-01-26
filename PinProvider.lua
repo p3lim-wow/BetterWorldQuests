@@ -202,6 +202,7 @@ function BetterWorldQuestPinMixin:OnLoad()
 
 	-- make sure the tracked check mark doesn't appear underneath any of our widgets
 	self.TrackedCheck:SetDrawLayer('OVERLAY', 3)
+	self.Underlay:SetScale(1.28)
 end
 
 local function IsParentMap(mapID)
