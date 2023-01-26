@@ -1,3 +1,5 @@
+local HBD = LibStub('HereBeDragons-2.0')
+
 local PARENT_MAPS = {
 	-- list of all continents and their sub-zones that have world quests
 	[1978] = { -- Dragon Isles
