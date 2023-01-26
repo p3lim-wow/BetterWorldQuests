@@ -39,12 +39,6 @@ local PARENT_MAPS = {
 	[12] = { -- Kalimdor
 		[62] = true, -- Darkshore (Warfronts)
 	},
-	[224] = { -- Stranglethorn Vale (it has child maps for north and south)
-		[210] = true, -- The Cape of Stranglethorn (south)
-	},
-	[2025] = { -- Thaldraszus
-		[2085] = true, -- Primalist Tomorrow
-	}
 }
 
 local FACTION_ASSAULT_ATLAS = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
@@ -116,9 +110,8 @@ function DataProvider:GetMapQuests(mapID)
 
 			for index, questData in next, stranglethornQuests do
 				-- we need to translate the coordinates so it works on the maps we show
+				questData.x, questData.y = HBD:TranslateZoneCoordinates(questData.x, questData.y, questData.mapID, 13)
 				questData.mapID = 13 -- move it to the Eastern Kalimdor map
-				questData.x = 0.44 + (((index - 1) * 10) / 100)
-				questData.y = 0.95
 
 				table.insert(quests, questData)
 			end
