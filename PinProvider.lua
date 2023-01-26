@@ -110,7 +110,7 @@ function DataProvider:GetMapQuests(mapID)
 				quests = {}
 			end
 
-			for index, questData in next, stranglethornQuests do
+			for _, questData in next, stranglethornQuests do
 				-- we need to translate the coordinates so it works on the maps we show
 				questData.x, questData.y = HBD:TranslateZoneCoordinates(questData.x, questData.y, questData.mapID, 13)
 				questData.mapID = 13 -- move it to the Eastern Kalimdor map

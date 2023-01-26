@@ -76,4 +76,8 @@ read_globals = {
 	'GetQuestLogRewardCurrencyInfo',
 	'GetQuestLogRewardMoney',
 	'SetPortraitToTexture',
+	'IsAltKeyDown',
+
+	-- exposed from other addons
+	'LibStub',
 }
