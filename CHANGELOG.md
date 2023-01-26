@@ -1,3 +1,10 @@
+### Changes in 100005.21-Release:
+
+- Added: Elemental storms to the Dragon Isles map
+- Changed: Update Interface version
+- Fixed: Elite world quest dragon border scale
+- Fixed: STV world quests potentially overlapping
+
 ### Changes in 100002.20-Release:
 
 - Added: Primalist Tomorrow WQs on the Dragon Isles and Thaldraszus maps
