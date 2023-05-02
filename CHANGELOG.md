@@ -1,3 +1,7 @@
+### Changes in 100100.22-Release:
+
+- Changed: Update Interface version
+
 ### Changes in 100005.21-Release:
 
 - Added: Elemental storms to the Dragon Isles map
