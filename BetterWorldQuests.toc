@@ -3,6 +3,7 @@
 ## Version: @project-version@
 ## Title: Better World Quests
 ## Notes: Improves the World Quest POIs on the map
+## IconTexture: Interface\Icons\icon_treasuremap
 ## OptionalDeps: LibStub, CallbackHandler-1.0, HereBeDragons
 ## SavedVariables: BetterWorldQuestsMigrate
 
