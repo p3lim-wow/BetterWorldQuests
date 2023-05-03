@@ -151,7 +151,7 @@ function DataProvider:RefreshAllData()
 					Pin:RefreshVisuals()
 					Pin:SetPosition(questInfo.x, questInfo.y)
 
-					if self.pingPin and self.pingPin:IsAttachedToQuest(questID) then
+					if self.pingPin and self.pingPin:GetID() == questID then
 						self.pingPin:SetScalingLimits(1, 1, 1)
 						self.pingPin:SetPosition(questInfo.x, questInfo.y)
 					end
@@ -165,7 +165,7 @@ function DataProvider:RefreshAllData()
 
 	for questID in next, pinsToRemove do
 		-- iterate and remove all pins marked for removal
-		if self.pingPin and self.pingPin:IsAttachedToQuest(questID) then
+		if self.pingPin and self.pingPin:GetID() == questID then
 			self.pingPin:Stop()
 		end
 
