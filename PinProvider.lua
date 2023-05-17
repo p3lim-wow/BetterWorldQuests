@@ -7,6 +7,7 @@ local PARENT_MAPS = {
 		[2023] = true, -- Ohn'ahran Plains
 		[2024] = true, -- The Azure Span
 		[2025] = true, -- Thaldraszus
+		[2151] = true, -- The Forbidden Reach
 	},
 	[1550] = { -- Shadowlands
 		[1525] = true, -- Revendreth
