@@ -1,3 +1,11 @@
+### Changes in 100100.24-Release:
+
+- Added: Forbidden Reach world quests to Dragon Isles map
+
+### Changes in 100100.23-Release:
+
+- Fixed: Error with pin pings
+
 ### Changes in 100100.22-Release:
 
 - Changed: Update Interface version
