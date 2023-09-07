@@ -1,4 +1,4 @@
-## Interface: 100100
+## Interface: 100107
 ## Author: p3lim
 ## Version: @project-version@
 ## Title: Better World Quests
