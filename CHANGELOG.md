@@ -1,3 +1,9 @@
+### Changes in 100200.25-Release:
+
+- Changed: Fullscreen map icon scale
+- Changed: Update Interface version
+- Fixed: Random error due to cache inconsistencies
+
 ### Changes in 100100.24-Release:
 
 - Added: Forbidden Reach world quests to Dragon Isles map
