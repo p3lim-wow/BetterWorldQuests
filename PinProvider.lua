@@ -70,7 +70,7 @@ function DataProvider:ShouldShowQuest(questInfo)
 		local mapID = self:GetMap():GetMapID()
 		local questMapID = questInfo.mapID
 		if mapID == questMapID or (PARENT_MAPS[mapID] and PARENT_MAPS[mapID][questMapID]) then
-			return HaveQuestData(questID) and QuestUtils_IsQuestWorldQuest(questID)
+			return HaveQuestData(questID) and C_QuestLog.GetQuestTagInfo(questID) and C_QuestLog.IsWorldQuest(questID)
 		end
 	end
 end
