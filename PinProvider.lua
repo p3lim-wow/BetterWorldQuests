@@ -216,10 +216,11 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	WorldMap_WorldQuestPinMixin.RefreshVisuals(self)
 
 	-- update scale
+	local baseScale = C_CVar.GetCVarBool('miniWorldMap') and 0 or 0.15
 	if IsParentMap(self:GetMap():GetMapID()) then
-		self:SetScalingLimits(1, 0.3, 0.5)
+		self:SetScalingLimits(1, baseScale + 0.3, baseScale + 0.5)
 	else
-		self:SetScalingLimits(1, 0.425, 0.425)
+		self:SetScalingLimits(1, baseScale + 0.425, baseScale + 0.625)
 	end
 
 	-- hide frames we don't want to use
