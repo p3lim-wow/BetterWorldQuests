@@ -19,6 +19,5 @@
 
 BetterWorldQuests.xml
 
-PinProvider.lua
-
+pins.lua
 storms.lua
