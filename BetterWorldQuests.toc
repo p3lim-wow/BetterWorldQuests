@@ -5,19 +5,24 @@
 ## Notes: Improves the World Quest POIs on the map
 ## IconTexture: Interface\Icons\icon_treasuremap
 ## OptionalDeps: LibStub, CallbackHandler-1.0, HereBeDragons
-## SavedVariables: BetterWorldQuestsMigrate
+## SavedVariables: BetterWorldQuestsDB
 
 ## X-Curse-Project-ID: 302035
 ## X-WoWI-ID: 24797
 ## X-Wago-ID: RBKppvKE
 
 #@non-debug@
+# libs\Dashi\embed.xml
 # libs\LibStub\LibStub.lua
 # libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
 # libs\HereBeDragons\HereBeDragons-2.0.lua
 #@end-non-debug@
+#@debug@
+..\Dashi\embed.xml
+#@end-debug@
 
 BetterWorldQuests.xml
 
 pins.lua
 storms.lua
+settings.lua

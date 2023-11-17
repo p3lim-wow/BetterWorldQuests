@@ -1,3 +1,4 @@
+local _, addon = ...
 local HBD = LibStub('HereBeDragons-2.0')
 
 local PARENT_MAPS = {
@@ -153,7 +154,6 @@ function DataProvider:RefreshAllData()
 					Pin:SetPosition(questInfo.x, questInfo.y)
 
 					if self.pingPin and self.pingPin:GetID() == questID then
-						self.pingPin:SetScalingLimits(1, 1, 1)
 						self.pingPin:SetPosition(questInfo.x, questInfo.y)
 					end
 				else
@@ -212,15 +212,25 @@ local function IsParentMap(mapID)
 	return not not PARENT_MAPS[mapID]
 end
 
+local mapScale, parentScale, zoomFactor
+addon:RegisterOptionCallback('mapScale', function(value)
+	mapScale = value
+end)
+addon:RegisterOptionCallback('parentScale', function(value)
+	parentScale = value
+end)
+addon:RegisterOptionCallback('zoomFactor', function(value)
+	zoomFactor = value
+end)
+
 function BetterWorldQuestPinMixin:RefreshVisuals()
 	WorldMap_WorldQuestPinMixin.RefreshVisuals(self)
 
 	-- update scale
-	local baseScale = C_CVar.GetCVarBool('miniWorldMap') and 0 or 0.15
 	if IsParentMap(self:GetMap():GetMapID()) then
-		self:SetScalingLimits(1, baseScale + 0.3, baseScale + 0.5)
+		self:SetScalingLimits(1, parentScale, parentScale + zoomFactor)
 	else
-		self:SetScalingLimits(1, baseScale + 0.425, baseScale + 0.625)
+		self:SetScalingLimits(1, mapScale, mapScale + zoomFactor)
 	end
 
 	-- hide frames we don't want to use
@@ -294,13 +304,11 @@ local function togglePinsVisibility(state)
 	end
 end
 
-local toggleEventHandler = CreateFrame('Frame')
-toggleEventHandler:RegisterEvent('MODIFIER_STATE_CHANGED')
-toggleEventHandler:SetScript('OnEvent', function()
+function addon:MODIFIER_STATE_CHANGED()
 	if WorldMapFrame:IsShown() then
 		togglePinsVisibility(not IsAltKeyDown())
 	end
-end)
+end
 
 WorldMapFrame:HookScript('OnHide', function()
 	togglePinsVisibility(true)
