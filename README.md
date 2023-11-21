@@ -10,8 +10,8 @@ It can be downloaded at one of the following sites:
 
 ## Description
 
-This addon replaces the world quest map pins, following the default style but shows the rewards at a quick glance.  
-It also shows the world quest pins on parent maps, e.g. all Broken Isles sub-zone world quests on the Broken Isles map.  
+This addon replaces the world quest map pins, following the default style but shows the rewards at a quick glance.
+It also shows the world quest pins on parent maps, e.g. all Broken Isles sub-zone world quests on the Broken Isles map.
 It also lets you alter the their size through options (`/bwq`), and temporarily hide them while holding down `ALT`.
 
 Due to the nature of this addon, any other addons that deals with world quests on the map are probably incompatible, and support for them will not happen.
