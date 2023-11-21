@@ -3,27 +3,28 @@
 This is an addon for the popular MMORPG "World of Warcraft".  
 It can be downloaded at one of the following sites:
 
-- [Curse](https://www.curseforge.com/wow/addons/better-world-quests)
+- [CurseForge](https://www.curseforge.com/wow/addons/better-world-quests)
 - [WoWInterface](https://wowinterface.com/downloads/info24797)
 - [Wago](https://addons.wago.io/addons/betterworldquests)
 - [GitHub](https://github.com/p3lim-wow/BetterWorldQuests/releases)
 
 ## Description
 
-Features:
-- Replaces the default World Quest pins with "improved" ones
-	- "Improved" is very opinionated
-- Displays World Quests on the "parent" maps
-- Improves the Argus overview map with actual working artwork
-	- Displays World Quests on said map
-	- Support for [World Flight Map](https://www.curseforge.com/wow/addons/worldflightmap) on said map
+This addon replaces the world quest map pins, following the default style but shows the rewards at a quick glance.  
+It also shows the world quest pins on parent maps, e.g. all Broken Isles sub-zone world quests on the Broken Isles map.  
+It also lets you alter the their size through options (`/bwq`), and temporarily hide them while holding down `ALT`.
 
-Due to the nature of this addon, any other World Quest-esque addons are probably incompatible.
+Due to the nature of this addon, any other addons that deals with world quests on the map are probably incompatible, and support for them will not happen.
 
-## Feedback
+## Translations
 
-If you have a question, please use the comments section on Curse/WoWInterface.  
-If you would like to report a bug, please follow [this link](https://github.com/p3lim-wow/BetterWorldQuests/issues?q=) to get started.
+If you want to help translate Molinari, please use this form on GitHub:  
+<https://github.com/p3lim-wow/BetterWorldQuests/issues/new?template=translate.yaml>
+
+## Feedback & issues
+
+If you would like to report a bug, feature request, or contribute to the project, please visit GitHub:  
+<https://github.com/p3lim-wow/BetterWorldQuests/issues/new/choose>
 
 ## Legal
 
