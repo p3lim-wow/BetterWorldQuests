@@ -1,4 +1,4 @@
-local L = select(2, ...).L('esMX')
+-- local L = select(2, ...).L('esMX')
 
 -- config
 -- L['Map pin scale'] = '' -- MISSING!

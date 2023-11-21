@@ -1,4 +1,4 @@
-local L = select(2, ...).L('esES')
+-- local L = select(2, ...).L('esES')
 
 -- config
 -- L['Map pin scale'] = '' -- MISSING!
