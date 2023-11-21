@@ -1,3 +1,7 @@
+### Changes in 100200.26-Release:
+
+- Added: Options to adjust pin scale
+
 ### Changes in 100200.25-Release:
 
 - Changed: Fullscreen map icon scale
