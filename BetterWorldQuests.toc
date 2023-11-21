@@ -23,6 +23,17 @@
 
 BetterWorldQuests.xml
 
+locale\deDE.lua
+locale\esES.lua
+locale\esMX.lua
+locale\frFR.lua
+locale\itIT.lua
+locale\koKR.lua
+locale\ptBR.lua
+locale\ruRU.lua
+locale\zhCN.lua
+locale\zhTW.lua
+
 pins.lua
 storms.lua
 settings.lua
