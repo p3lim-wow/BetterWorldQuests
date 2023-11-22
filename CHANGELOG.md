@@ -1,3 +1,7 @@
+### Changes in 100200.28-Release:
+
+- Fixed: Modifying wrong object
+
 ### Changes in 100200.27-Release:
 
 - Added: zhTW translations
