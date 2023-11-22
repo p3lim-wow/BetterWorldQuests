@@ -293,7 +293,7 @@ end
 
 -- SetPassThroughButtons can't be called in combat, so we just disable this functionality entirely
 -- so we can still update world quest pins whenever and rather wait for Blizzard to fix this mess
-WorldQuestPinMixin.SetPassThroughButtons = nop
+BetterWorldQuestPinMixin.SetPassThroughButtons = nop
 
 -- we need to remove the default data provider mixin
 for provider in next, WorldMapFrame.dataProviders do
