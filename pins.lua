@@ -289,6 +289,16 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 			self.Indicator:Hide()
 		end
 	end
+
+	local _, factionID = C_TaskQuest.GetQuestInfoByQuestID(questID)
+	if factionID then
+		local _, _, _, _, _, _, _, _, _, _, _, isWatched = GetFactionInfoByID(factionID)
+		if isWatched then
+			-- show an indicator for tracked reputation
+			self.Indicator:SetAtlas('socialqueuing-icon-eye')
+			self.Indicator:Show()
+		end
+	end
 end
 
 -- SetPassThroughButtons can't be called in combat, so we just disable this functionality entirely
