@@ -39,25 +39,26 @@ read_globals = {
 	'CreateFromMixins', -- SharedXML/Mixin.lua
 
 	-- namespaces
-	'Enum',
 	'C_AreaPoiInfo',
 	'C_CVar',
+	'C_Item',
 	'C_QuestLog',
 	'C_TaskQuest',
-	'C_Item',
+	'Enum',
 
 	-- API
-	'hooksecurefunc',
 	'CreateFrame',
-	'HaveQuestData',
-	'UnitFactionGroup',
-	'GetQuestLogRewardInfo',
-	'GetNumQuestLogRewards',
+	'GetFactionInfoByID',
 	'GetNumQuestLogRewardCurrencies',
+	'GetNumQuestLogRewards',
 	'GetQuestLogRewardCurrencyInfo',
+	'GetQuestLogRewardInfo',
 	'GetQuestLogRewardMoney',
-	'SetPortraitToTexture',
+	'HaveQuestData',
 	'IsAltKeyDown',
+	'SetPortraitToTexture',
+	'UnitFactionGroup',
+	'hooksecurefunc',
 
 	-- exposed from other addons
 	'LibStub',
