@@ -1,4 +1,4 @@
-## Interface: 100205
+## Interface: 110000
 ## Author: p3lim
 ## Version: @project-version@
 ## Title: Better World Quests
@@ -34,6 +34,7 @@ locale\ruRU.lua
 locale\zhCN.lua
 locale\zhTW.lua
 
-pins.lua
-storms.lua
 settings.lua
+provider.lua
+pin.lua
+storms.lua
