@@ -128,7 +128,7 @@ local function getMapQuests(mapID)
 end
 
 -- override RefreshAllData to fine-control which quests should show (it's otherwise identical)
-function provider:RefreshAllData(fromOnShow)
+function provider:RefreshAllData()
 	-- this if from WorldQuestDataProviderMixin.RefreshAllData
 	local pinsToRemove = {}
 	for questID in next, self.activePins do
@@ -146,7 +146,7 @@ function provider:RefreshAllData(fromOnShow)
 		self.matchWorldMapFilters = MapUtil.MapShouldShowWorldQuestFilters(mapID)
 	end
 
-	if taskInfo and GetCVarBool('questPOIWQ') then
+	if taskInfo and C_CVar.GetCVarBool('questPOIWQ') then
 		for _, info in next, taskInfo do
 			if self:ShouldOverrideShowQuest(mapID, info.questId) or self:ShouldShowQuest(info) and HaveQuestData(info.questId) then
 				if QuestUtils_IsQuestWorldQuest(info.questId) then

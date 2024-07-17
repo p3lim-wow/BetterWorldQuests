@@ -18,37 +18,37 @@ ignore = {
 exclude_files = {}
 
 globals = {
-	-- savedvariables
-	'BetterWorldQuestsMigrate',
-
 	-- exposed globals
 	'BetterWorldQuestPinMixin',
 }
 
 read_globals = {
 	-- FrameXML objects
-	'WorldMapFrame', -- AddOns/Blizzard_WorldMap/Blizzard_WorldMap.xml
-	'WorldMap_WorldQuestPinMixin', -- AddOns/Blizzard_WorldMap/WM_WorldQuestDataProvider.lua
-	'WorldQuestDataProviderMixin', -- AddOns/Blizzard_SharedMapDataProviders/WorldQuestDataProvider.lua
-	'WorldQuestPinMixin', -- AddOns/Blizzard_SharedMapDataProviders/WorldQuestDataProvider.lua
+	'WorldMap_WorldQuestPinMixin',
+	'WorldMapFrame',
+	'WorldMapPOIQuantizerMixin',
+	'WorldQuestDataProviderMixin',
+	'WorldQuestPinMixin',
 
 	-- FrameXML constants
-	'WORLD_QUEST_ICONS_BY_PROFESSION', -- FrameXML/Constants.lua
+	'WORLD_QUEST_ICONS_BY_PROFESSION',
 
-	-- SharedXML functions
-	'CreateFromMixins', -- SharedXML/Mixin.lua
+	-- FrameXML functions
+	'CreateFromMixins',
+	'GetQuestsForPlayerByMapIDCached',
+	'MapUtil',
+	'QuestUtils_IsQuestWorldQuest',
 
 	-- namespaces
 	'C_AreaPoiInfo',
 	'C_CVar',
 	'C_Item',
 	'C_QuestLog',
+	'C_Reputation',
 	'C_TaskQuest',
 	'Enum',
 
 	-- API
-	'CreateFrame',
-	'GetFactionInfoByID',
 	'GetNumQuestLogRewardCurrencies',
 	'GetNumQuestLogRewards',
 	'GetQuestLogRewardCurrencyInfo',
@@ -56,7 +56,6 @@ read_globals = {
 	'GetQuestLogRewardMoney',
 	'HaveQuestData',
 	'IsAltKeyDown',
-	'SetPortraitToTexture',
 	'UnitFactionGroup',
 	'hooksecurefunc',
 
