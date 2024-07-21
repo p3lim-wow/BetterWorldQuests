@@ -2,7 +2,7 @@ local _, addon = ...
 local L = addon.L
 
 local function formatPercentage(value)
-	return _G.PERCENTAGE_STRING:format(math.floor((value * 100) + 0.5))
+	return PERCENTAGE_STRING:format(math.floor((value * 100) + 0.5))
 end
 
 addon:RegisterSettings('BetterWorldQuestsDB', {

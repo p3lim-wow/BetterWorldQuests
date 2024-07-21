@@ -15,8 +15,6 @@ ignore = {
 	'631', -- line is too long
 }
 
-exclude_files = {}
-
 globals = {
 	-- exposed globals
 	'BetterWorldQuestPinMixin',
@@ -38,6 +36,9 @@ read_globals = {
 	'GetQuestsForPlayerByMapIDCached',
 	'MapUtil',
 	'QuestUtils_IsQuestWorldQuest',
+
+	-- GlobalStrings
+	'PERCENTAGE_STRING',
 
 	-- namespaces
 	'C_AreaPoiInfo',
