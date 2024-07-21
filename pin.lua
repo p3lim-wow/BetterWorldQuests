@@ -68,6 +68,7 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 
 	-- set reward icon
 	local questID = self.questID
+	local currencyRewards = C_QuestLog.GetQuestRewardCurrencies(questID)
 	if GetNumQuestLogRewards(questID) > 0 then
 		local _, texture, _, _, _, itemID = GetQuestLogRewardInfo(1, questID)
 		if C_Item.IsAnimaItemByID(itemID) then
@@ -75,9 +76,8 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 		end
 
 		self.Reward:SetTexture(texture)
-	elseif GetNumQuestLogRewardCurrencies(questID) > 0 then
-		local _, texture = GetQuestLogRewardCurrencyInfo(1, questID)
-		self.Reward:SetTexture(texture)
+	elseif #currencyRewards > 0 then
+		self.Reward:SetTexture(currencyRewards[1].texture)
 	elseif GetQuestLogRewardMoney(questID) > 0 then
 		self.Reward:SetTexture([[Interface\Icons\INV_MISC_COIN_01]])
 	else
