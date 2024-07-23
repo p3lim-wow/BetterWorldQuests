@@ -21,6 +21,7 @@ function BetterWorldQuestPinMixin:OnLoad()
 	Border:SetAtlas('worldquest-tracker-ring-selected')
 	Border:SetPoint('TOPLEFT', -5, 5)
 	Border:SetPoint('BOTTOMRIGHT', 5, -5)
+	Border:SetDesaturated(true) -- so we can apply color to it
 	self.Border = Border
 
 	local Indicator = self:CreateTexture(nil, 'OVERLAY', nil, 2)
@@ -47,7 +48,7 @@ function BetterWorldQuestPinMixin:OnLoad()
 	self.PushedTexture:SetAlpha(0)
 end
 
-local mapScale, parentScale, zoomFactor
+local mapScale, parentScale, zoomFactor, color
 addon:RegisterOptionCallback('mapScale', function(value)
 	mapScale = value
 end)
@@ -56,6 +57,9 @@ addon:RegisterOptionCallback('parentScale', function(value)
 end)
 addon:RegisterOptionCallback('zoomFactor', function(value)
 	zoomFactor = value
+end)
+addon:RegisterOptionCallback('color', function(value)
+	color = addon:CreateColor(value)
 end)
 
 function BetterWorldQuestPinMixin:RefreshVisuals()
@@ -72,6 +76,9 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	if self.UnderlayAtlas then
 		self.UnderlayAtlas:SetScale(1.4)
 	end
+
+	-- set border color
+	self.Border:SetVertexColor(color:GetRGB())
 
 	-- set reward icon
 	local questID = self.questID

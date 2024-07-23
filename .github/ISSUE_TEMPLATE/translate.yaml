@@ -62,3 +62,8 @@ body:
       label: '"How much extra scale to apply when map is zoomed"'
       description: Used in the settings
       placeholder: Translation here
+  - type: input
+    attributes:
+      label: '"Pin border color"'
+      description: Used in the settings
+      placeholder: Translation here
