@@ -43,7 +43,7 @@ addon:RegisterSettings('BetterWorldQuestsDB', {
 		key = 'color',
 		type = 'colorpicker',
 		title = L['Pin border color'],
-		default = 'ffffff', -- TODO
+		default = 'ffdd60',
 		new = true,
 	},
 })
