@@ -27,6 +27,13 @@ function BetterWorldQuestPinMixin:OnLoad()
 	Indicator:SetPoint('CENTER', self, 'TOPLEFT')---9, 9)
 	self.Indicator = Indicator
 
+	local Reputation = self:CreateTexture(nil, 'OVERLAY', nil, 2)
+	Reputation:SetPoint('CENTER', self, 'BOTTOM')
+	Reputation:SetSize(16, 16)
+	Reputation:SetAtlas('socialqueuing-icon-eye')
+	Reputation:Hide()
+	self.Reputation = Reputation
+
 	local Bounty = self:CreateTexture(nil, 'OVERLAY', nil, 3)
 	Bounty:SetAtlas('QuestNormal', true)
 	Bounty:SetScale(0.65)
@@ -132,14 +139,12 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	if factionID then
 		local factionInfo = C_Reputation.GetFactionDataByID(factionID)
 		if factionInfo and factionInfo.isWatched then
-			self.Border:SetDesaturated(true)
-			self.Border:SetVertexColor(0, 0.8, 0)
+			self.Reputation:Show()
 			return
 		end
 	end
 
-	self.Border:SetDesaturated(false)
-	self.Border:SetVertexColor(1, 1, 1)
+	self.Reputation:Hide()
 end
 
 -- TODO: is this still needed?
