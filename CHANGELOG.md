@@ -1,3 +1,12 @@
+### Changes in 110000.29-Release:
+
+- Added: Indicator for world quests that reward reputation with the watched faction
+- Added: Option to change pin border color
+- Added: Preliminary support for TWW zones
+- Changed: Compatibility with TWW changes
+- Changed: Update Interface version
+- Changed: Adjusted default sizes, you might want to reset your settings
+
 ### Changes in 100200.28-Release:
 
 - Fixed: Modifying wrong object
