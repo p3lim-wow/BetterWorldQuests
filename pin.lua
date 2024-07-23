@@ -18,7 +18,7 @@ function BetterWorldQuestPinMixin:OnLoad()
 	Reward:AddMaskTexture(RewardMask)
 
 	local Border = self:CreateTexture(nil, 'OVERLAY', nil, 1)
-	Border:SetAtlas('worldquest-emissary-ring')
+	Border:SetAtlas('worldquest-tracker-ring-selected')
 	Border:SetPoint('TOPLEFT', -5, 5)
 	Border:SetPoint('BOTTOMRIGHT', 5, -5)
 	self.Border = Border
