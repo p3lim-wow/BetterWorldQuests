@@ -161,6 +161,10 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	end
 end
 
+function BetterWorldQuestPinMixin:AddIconWidgets()
+	-- remove the obnoxious glow behind world bosses
+end
+
 function BetterWorldQuestPinMixin:SetPassThroughButtons()
 	-- https://github.com/Stanzilla/WoWUIBugs/issues/453
 end
