@@ -1,3 +1,10 @@
+### Changes in 110000.30-Release:
+
+- Fixed: Taint issues
+- Removed: Border color option, as we're no longer using a custom border
+- Removed: Default massive glow behind world boss world quests
+- Removed: Support for STV and Primalist Future (temporarily?)
+
 ### Changes in 110000.29-Release:
 
 - Added: Indicator for world quests that reward reputation with the watched faction
