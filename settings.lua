@@ -39,13 +39,6 @@ addon:RegisterSettings('BetterWorldQuestsDB', {
 		valueStep = 0.01,
 		valueFormat = formatPercentage,
 	},
-	{
-		key = 'color',
-		type = 'colorpicker',
-		title = L['Pin border color'],
-		default = 'ffdd60',
-		new = true,
-	},
 })
 
 addon:RegisterSettingsSlash('/betterworldquests', '/bwq')

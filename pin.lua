@@ -2,53 +2,7 @@ local _, addon = ...
 
 local FACTION_ASSAULT_ATLAS = UnitFactionGroup('player') == 'Horde' and 'worldquest-icon-horde' or 'worldquest-icon-alliance'
 
-BetterWorldQuestPinMixin = CreateFromMixins(WorldMap_WorldQuestPinMixin)
-function BetterWorldQuestPinMixin:OnLoad()
-	WorldQuestPinMixin.OnLoad(self) -- super
-
-	-- add our own widgets
-	local Reward = self:CreateTexture(nil, 'OVERLAY')
-	Reward:SetAllPoints()
-	Reward:SetTexCoord(0.1, 0.9, 0.1, 0.9)
-	self.Reward = Reward
-
-	local RewardMask = self:CreateMaskTexture()
-	RewardMask:SetTexture([[Interface\CharacterFrame\TempPortraitAlphaMask]])
-	RewardMask:SetAllPoints(Reward)
-	Reward:AddMaskTexture(RewardMask)
-
-	local Border = self:CreateTexture(nil, 'OVERLAY', nil, 1)
-	Border:SetAtlas('worldquest-tracker-ring-selected')
-	Border:SetPoint('TOPLEFT', -5, 5)
-	Border:SetPoint('BOTTOMRIGHT', 5, -5)
-	Border:SetDesaturated(true) -- so we can apply color to it
-	self.Border = Border
-
-	local Indicator = self:CreateTexture(nil, 'OVERLAY', nil, 2)
-	Indicator:SetPoint('CENTER', self, 'TOPLEFT')---9, 9)
-	self.Indicator = Indicator
-
-	local Reputation = self:CreateTexture(nil, 'OVERLAY', nil, 2)
-	Reputation:SetPoint('CENTER', self, 'BOTTOM')
-	Reputation:SetSize(16, 16)
-	Reputation:SetAtlas('socialqueuing-icon-eye')
-	Reputation:Hide()
-	self.Reputation = Reputation
-
-	local Bounty = self:CreateTexture(nil, 'OVERLAY', nil, 3)
-	Bounty:SetAtlas('QuestNormal', true)
-	Bounty:SetScale(0.65)
-	Bounty:SetPoint('LEFT', self, 'RIGHT', -(Bounty:GetWidth() / 2), 0)
-	self.Bounty = Bounty
-
-	-- adjust existing widgets
-	self.TrackedCheck:SetDrawLayer('OVERLAY', 7)
-	self.Display:Hide()
-	self.NormalTexture:SetAlpha(0)
-	self.PushedTexture:SetAlpha(0)
-end
-
-local mapScale, parentScale, zoomFactor, color
+local mapScale, parentScale, zoomFactor
 addon:RegisterOptionCallback('mapScale', function(value)
 	mapScale = value
 end)
@@ -58,12 +12,68 @@ end)
 addon:RegisterOptionCallback('zoomFactor', function(value)
 	zoomFactor = value
 end)
-addon:RegisterOptionCallback('color', function(value)
-	color = addon:CreateColor(value)
-end)
+
+BetterWorldQuestPinMixin = CreateFromMixins(WorldMap_WorldQuestPinMixin)
+function BetterWorldQuestPinMixin:OnLoad()
+	WorldMap_WorldQuestPinMixin.OnLoad(self) -- super
+
+	-- recreate WorldQuestPinTemplate regions
+	local TrackedCheck = self:CreateTexture(nil, 'OVERLAY', nil, 7)
+	TrackedCheck:SetPoint('BOTTOM', self, 'BOTTOMRIGHT', 0, -2)
+	TrackedCheck:SetAtlas('worldquest-emissary-tracker-checkmark', true)
+	TrackedCheck:Hide()
+	self.TrackedCheck = TrackedCheck
+
+	local TimeLowFrame = CreateFrame('Frame', nil, self)
+	TimeLowFrame:SetPoint('CENTER', 9, -9)
+	TimeLowFrame:SetSize(22, 22)
+	TimeLowFrame:Hide()
+	self.TimeLowFrame = TimeLowFrame
+
+	local TimeLowIcon = TimeLowFrame:CreateTexture(nil, 'OVERLAY')
+	TimeLowIcon:SetAllPoints()
+	TimeLowIcon:SetAtlas('worldquest-icon-clock')
+	TimeLowFrame.Icon = TimeLowIcon
+
+	-- add our own widgets
+	local Reward = self:CreateTexture(nil, 'OVERLAY')
+	Reward:SetPoint('CENTER', self.PushedTexture)
+	Reward:SetSize(self:GetWidth() - 4, self:GetHeight() - 4)
+	Reward:SetTexCoord(0.1, 0.9, 0.1, 0.9)
+	self.Reward = Reward
+
+	local RewardMask = self:CreateMaskTexture()
+	RewardMask:SetTexture([[Interface\CharacterFrame\TempPortraitAlphaMask]])
+	RewardMask:SetAllPoints(Reward)
+	Reward:AddMaskTexture(RewardMask)
+
+	local Indicator = self:CreateTexture(nil, 'OVERLAY', nil, 2)
+	Indicator:SetPoint('CENTER', self, 'TOPLEFT', 4, -4)
+	self.Indicator = Indicator
+
+	local Reputation = self:CreateTexture(nil, 'OVERLAY', nil, 2)
+	Reputation:SetPoint('CENTER', self, 'BOTTOM', 0, 2)
+	Reputation:SetSize(10, 10)
+	Reputation:SetAtlas('socialqueuing-icon-eye')
+	Reputation:Hide()
+	self.Reputation = Reputation
+
+	local Bounty = self:CreateTexture(nil, 'OVERLAY', nil, 3)
+	Bounty:SetAtlas('QuestNormal', true)
+	Bounty:SetScale(0.65)
+	Bounty:SetPoint('LEFT', self, 'RIGHT', -(Bounty:GetWidth() / 2), 0)
+	self.Bounty = Bounty
+end
 
 function BetterWorldQuestPinMixin:RefreshVisuals()
 	WorldMap_WorldQuestPinMixin.RefreshVisuals(self) -- super
+
+	-- hide optional elements by default
+	self.Bounty:Hide()
+	self.Reward:Hide()
+	self.Reputation:Hide()
+	self.Indicator:Hide()
+	self.Display.Icon:Hide()
 
 	-- update scale
 	if addon:IsParentMap(self:GetMap():GetMapID()) then
@@ -72,13 +82,12 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 		self:SetScalingLimits(1, mapScale, mapScale + zoomFactor)
 	end
 
-	-- fix underlay
-	if self.UnderlayAtlas then
-		self.UnderlayAtlas:SetScale(1.4)
+	-- uniform coloring
+	if self:IsSelected() then
+		self.NormalTexture:SetAtlas('worldquest-questmarker-epic-supertracked', true)
+	else
+		self.NormalTexture:SetAtlas('worldquest-questmarker-epic', true)
 	end
-
-	-- set border color
-	self.Border:SetVertexColor(color:GetRGB())
 
 	-- set reward icon
 	local questID = self.questID
@@ -90,13 +99,16 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 		end
 
 		self.Reward:SetTexture(texture)
+		self.Reward:Show()
 	elseif #currencyRewards > 0 then
 		self.Reward:SetTexture(currencyRewards[1].texture)
+		self.Reward:Show()
 	elseif GetQuestLogRewardMoney(questID) > 0 then
 		self.Reward:SetTexture([[Interface\Icons\INV_MISC_COIN_01]])
+		self.Reward:Show()
 	else
-		-- if there are no rewards just show the default wq icon
-		self.Reward:SetAtlas('Worldquest-icon')
+		-- if there are no rewards just show the default icon
+		self.Display.Icon:Show()
 	end
 
 	-- set world quest type indicator
@@ -104,42 +116,40 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	if questInfo then
 		if questInfo.worldQuestType == Enum.QuestTagType.PvP then
 			self.Indicator:SetAtlas('Warfronts-BaseMapIcons-Empty-Barracks-Minimap')
-			self.Indicator:SetSize(25, 25)
+			self.Indicator:SetSize(18, 18)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.PetBattle then
 			self.Indicator:SetAtlas('WildBattlePetCapturable')
-			self.Indicator:SetSize(16, 16)
+			self.Indicator:SetSize(10, 10)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.Profession then
 			self.Indicator:SetAtlas(WORLD_QUEST_ICONS_BY_PROFESSION[questInfo.tradeskillLineID])
-			self.Indicator:SetSize(16, 16)
+			self.Indicator:SetSize(10, 10)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.Dungeon then
 			self.Indicator:SetAtlas('Dungeon')
-			self.Indicator:SetSize(26, 26)
+			self.Indicator:SetSize(20, 20)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.Raid then
 			self.Indicator:SetAtlas('Raid')
-			self.Indicator:SetSize(26, 26)
+			self.Indicator:SetSize(20, 20)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.Invasion then
 			self.Indicator:SetAtlas('worldquest-icon-burninglegion')
-			self.Indicator:SetSize(16, 16)
+			self.Indicator:SetSize(10, 10)
 			self.Indicator:Show()
 		elseif questInfo.worldQuestType == Enum.QuestTagType.FactionAssault then
 			self.Indicator:SetAtlas(FACTION_ASSAULT_ATLAS)
-			self.Indicator:SetSize(14, 14)
+			self.Indicator:SetSize(10, 10)
 			self.Indicator:Show()
-		else
-			self.Indicator:Hide()
 		end
-	else
-		self.Indicator:Hide()
 	end
 
 	-- update bounty icon
 	local bountyQuestID = self.dataProvider:GetBountyInfo()
-	self.Bounty:SetShown(bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID))
+	if bountyQuestID and C_QuestLog.IsQuestCriteriaForBounty(questID, bountyQuestID) then
+		self.Bounty:Show()
+	end
 
 	-- highlight reputation
 	local _, factionID = C_TaskQuest.GetQuestInfoByQuestID(questID)
@@ -147,12 +157,10 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 		local factionInfo = C_Reputation.GetFactionDataByID(factionID)
 		if factionInfo and factionInfo.isWatched then
 			self.Reputation:Show()
-			return
 		end
 	end
-
-	self.Reputation:Hide()
 end
 
--- TODO: is this still needed?
-BetterWorldQuestPinMixin.SetPassThroughButtons = function() end
+function BetterWorldQuestPinMixin:SetPassThroughButtons()
+	-- https://github.com/Stanzilla/WoWUIBugs/issues/453
+end
