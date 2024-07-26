@@ -22,41 +22,40 @@ globals = {
 
 read_globals = {
 	-- FrameXML objects
+	'WorldMap_WorldQuestDataProviderMixin',
 	'WorldMap_WorldQuestPinMixin',
 	'WorldMapFrame',
-	'WorldMapPOIQuantizerMixin',
-	'WorldQuestDataProviderMixin',
-	'WorldQuestPinMixin',
 
 	-- FrameXML constants
 	'WORLD_QUEST_ICONS_BY_PROFESSION',
 
 	-- FrameXML functions
 	'CreateFromMixins',
-	'GetQuestsForPlayerByMapIDCached',
-	'MapUtil',
-	'QuestUtils_IsQuestWorldQuest',
 
 	-- GlobalStrings
 	'PERCENTAGE_STRING',
+	'NEVER',
+	'ALT_KEY',
+	'CTRL_KEY',
+	'SHIFT_KEY',
 
 	-- namespaces
 	'C_AreaPoiInfo',
-	'C_CVar',
 	'C_Item',
+	'C_Map',
 	'C_QuestLog',
 	'C_Reputation',
 	'C_TaskQuest',
 	'Enum',
 
 	-- API
-	'GetNumQuestLogRewardCurrencies',
+	'CreateFrame',
 	'GetNumQuestLogRewards',
-	'GetQuestLogRewardCurrencyInfo',
 	'GetQuestLogRewardInfo',
 	'GetQuestLogRewardMoney',
-	'HaveQuestData',
 	'IsAltKeyDown',
+	'IsControlKeyDown',
+	'IsShiftKeyDown',
 	'UnitFactionGroup',
 	'hooksecurefunc',
 
