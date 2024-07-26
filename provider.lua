@@ -25,19 +25,44 @@ for dp in next, WorldMapFrame.dataProviders do
 	end
 end
 
--- change visibility with alt key
-local function toggleVisibility(state)
+-- change visibility
+local modifier
+local function toggleVisibility()
+	local state = true
+	if not WorldMapFrame:IsShown() then
+		state = false
+	else
+		if modifier == 'ALT' then
+			state = not IsAltKeyDown()
+		elseif modifier == 'SHIFT' then
+			state = not IsShiftKeyDown()
+		elseif modifier == 'CTRL' then
+			state = not IsControlKeyDown()
+		end
+	end
+
 	for pin in WorldMapFrame:EnumeratePinsByTemplate(provider:GetPinTemplate()) do
 		pin:SetShown(state)
 	end
 end
 
-function addon:MODIFIER_STATE_CHANGED()
-	if WorldMapFrame:IsShown() then
-		toggleVisibility(not IsAltKeyDown())
-	end
-end
-
 WorldMapFrame:HookScript('OnHide', function()
-	toggleVisibility(true)
+	toggleVisibility()
+end)
+
+addon:RegisterOptionCallback('hideModifier', function(value)
+	if value == 'NEVER' then
+		if addon:IsEventRegistered('MODIFIER_STATE_CHANGED', toggleVisibility) then
+			addon:UnregisterEvent('MODIFIER_STATE_CHANGED', toggleVisibility)
+		end
+
+		modifier = nil
+		toggleVisibility()
+	else
+		if not addon:IsEventRegistered('MODIFIER_STATE_CHANGED', toggleVisibility) then
+			addon:RegisterEvent('MODIFIER_STATE_CHANGED', toggleVisibility)
+		end
+
+		modifier = value
+	end
 end)

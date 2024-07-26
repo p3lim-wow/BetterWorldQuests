@@ -39,6 +39,19 @@ addon:RegisterSettings('BetterWorldQuestsDB', {
 		valueStep = 0.01,
 		valueFormat = formatPercentage,
 	},
+	{
+		key = 'hideModifier',
+		type = 'menu',
+		title = L['Hold key to hide'],
+		tooltip = L['Hold this key to temporarily hide all world quests'],
+		default = 'ALT',
+		options = {
+			NEVER = NEVER,
+			ALT = ALT_KEY,
+			CTRL = CTRL_KEY,
+			SHIFT = SHIFT_KEY,
+		},
+	},
 })
 
 addon:RegisterSettingsSlash('/betterworldquests', '/bwq')
