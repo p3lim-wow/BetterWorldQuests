@@ -11,7 +11,7 @@ function provider:GetPinTemplate()
 end
 
 -- override ShouldShowQuest method to also show on parent maps
-function provider:ShouldOverrideShowQuest(mapID, questInfo)
+function provider:ShouldOverrideShowQuest(mapID) --, questInfo)
 	local mapInfo = C_Map.GetMapInfo(mapID)
 	return mapInfo.mapType == Enum.UIMapType.Continent
 end
