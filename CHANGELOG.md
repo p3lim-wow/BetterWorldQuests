@@ -20,7 +20,7 @@
 
 ### Changes in 100200.27-Release:
 
-- Added: zhTW translations
+- Added: zhTW translations (thanks @BlueNightSky)
 - Fixed: Error when opening map while in combat
 
 ### Changes in 100200.26-Release:
