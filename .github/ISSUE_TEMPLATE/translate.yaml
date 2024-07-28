@@ -67,3 +67,13 @@ body:
       label: '"Pin border color"'
       description: Used in the settings
       placeholder: Translation here
+  - type: input
+    attributes:
+      label: '"Hold key to hide"'
+      description: Used in the settings
+      placeholder: Translation here
+  - type: input
+    attributes:
+      label: '"Hold this key to temporarily hide all world quests"'
+      description: Used in the settings
+      placeholder: Translation here
