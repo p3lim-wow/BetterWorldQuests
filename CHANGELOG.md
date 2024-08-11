@@ -1,3 +1,9 @@
+### Changes in 110000.31-Release:
+
+- Added: Option when to hide pins
+- Added: zhCN translations (thanks @nanjuekaien1)
+- Fixed: Compatibility with 11.0.2 patch
+
 ### Changes in 110000.30-Release:
 
 - Fixed: Taint issues
