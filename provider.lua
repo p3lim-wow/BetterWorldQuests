@@ -29,16 +29,12 @@ end
 local modifier
 local function toggleVisibility()
 	local state = true
-	if not WorldMapFrame:IsShown() then
-		state = false
-	else
-		if modifier == 'ALT' then
-			state = not IsAltKeyDown()
-		elseif modifier == 'SHIFT' then
-			state = not IsShiftKeyDown()
-		elseif modifier == 'CTRL' then
-			state = not IsControlKeyDown()
-		end
+	if modifier == 'ALT' then
+		state = not IsAltKeyDown()
+	elseif modifier == 'SHIFT' then
+		state = not IsShiftKeyDown()
+	elseif modifier == 'CTRL' then
+		state = not IsControlKeyDown()
 	end
 
 	for pin in WorldMapFrame:EnumeratePinsByTemplate(provider:GetPinTemplate()) do
