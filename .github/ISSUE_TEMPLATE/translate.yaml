@@ -64,11 +64,6 @@ body:
       placeholder: Translation here
   - type: input
     attributes:
-      label: '"Pin border color"'
-      description: Used in the settings
-      placeholder: Translation here
-  - type: input
-    attributes:
       label: '"Hold key to hide"'
       description: Used in the settings
       placeholder: Translation here
