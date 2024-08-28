@@ -1,15 +1,15 @@
 local _, addon = ...
 
-local PARENT_MAPS = {
+local CONTINENTS = {
 	-- list of all continents and their sub-zones that have world quests
 	[2274] = { -- Khaz Algar
 		[2248] = true, -- Isle of Dorn
 		[2215] = true, -- Hallowfall
 		[2214] = true, -- The Ringing Deeps
 		[2255] = true, -- Azj-Kahet
-		[2256] = true, -- Azj-Kahet - Lower (don't know how this works yet)
-		[2213] = true, -- City of Threads (not really representable on Algar, TBD)
-		[2216] = true, -- City of Threads - Lower (again, don't know how this works)
+		[2256] = true, -- Azj-Kahet - Lower
+		[2213] = true, -- City of Threads
+		[2216] = true, -- City of Threads - Lower
 	},
 	[1978] = { -- Dragon Isles
 		[2022] = true, -- The Walking Shores
@@ -54,9 +54,10 @@ local PARENT_MAPS = {
 }
 
 function addon:IsParentMap(mapID)
-	return not not PARENT_MAPS[mapID]
+	return not not CONTINENTS[mapID]
 end
 
 function addon:IsChildMap(parentMapID, mapID)
-	return not not (PARENT_MAPS[parentMapID] and PARENT_MAPS[parentMapID][mapID])
+	local mapInfo = C_Map.GetMapInfo(mapID)
+	return parentMapID and mapID and mapInfo and mapInfo.parentMapID and mapInfo.parentMapID == parentMapID
 end

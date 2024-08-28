@@ -10,10 +10,19 @@ function provider:GetPinTemplate()
 	return 'BetterWorldQuestPinTemplate'
 end
 
--- override ShouldShowQuest method to also show on parent maps
+-- override ShouldOverrideShowQuest method to show pins on continent maps
 function provider:ShouldOverrideShowQuest(mapID) --, questInfo)
 	local mapInfo = C_Map.GetMapInfo(mapID)
 	return mapInfo.mapType == Enum.UIMapType.Continent
+end
+
+-- override ShouldShowQuest method to show pins on parent maps
+function provider:ShouldShowQuest(questInfo)
+	if WorldQuestDataProviderMixin.ShouldShowQuest(self, questInfo) then -- super
+		return true
+	end
+
+	return addon:IsChildMap(self:GetMap():GetMapID(), questInfo.mapID)
 end
 
 WorldMapFrame:AddDataProvider(provider)
