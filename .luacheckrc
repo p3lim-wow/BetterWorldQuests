@@ -25,6 +25,7 @@ read_globals = {
 	'WorldMap_WorldQuestDataProviderMixin',
 	'WorldMap_WorldQuestPinMixin',
 	'WorldMapFrame',
+	'WorldQuestDataProviderMixin',
 
 	-- FrameXML constants
 	'WORLD_QUEST_ICONS_BY_PROFESSION',
