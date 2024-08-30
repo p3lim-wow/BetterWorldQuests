@@ -35,6 +35,9 @@ local CONTINENTS = {
 		[790] = true, -- Eye of Azshara (world version)
 		[646] = true, -- Broken Shore
 	},
+	[424] = { -- Pandaria
+		[1530] = true, -- Vale of Eternal Blossoms (BfA)
+	},
 	[875] = { -- Zandalar
 		[862] = true, -- Zuldazar
 		[864] = true, -- Vol'Dun
@@ -50,6 +53,17 @@ local CONTINENTS = {
 	},
 	[12] = { -- Kalimdor
 		[62] = true, -- Darkshore (Warfronts)
+		[1527] = true, -- Uldum (BfA)
+	},
+	[947] = { -- Azeroth
+		[13] = true, -- Eastern Kingdoms
+		[12] = true, -- Kalimdor
+		[619] = true, -- Broken Isles
+		[875] = true, -- Zandalar
+		[876] = true, -- Kul Tiras
+		[424] = true, -- Pandaria
+		[1978] = true, -- Dragon Isles
+		[2274] = true, -- Khaz Algar
 	},
 }
 
