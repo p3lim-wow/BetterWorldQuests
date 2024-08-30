@@ -76,7 +76,10 @@ function BetterWorldQuestPinMixin:RefreshVisuals()
 	self.Display.Icon:Hide()
 
 	-- update scale
-	if addon:IsParentMap(self:GetMap():GetMapID()) then
+	local mapID = self:GetMap():GetMapID()
+	if mapID == 947 then
+		self:SetScalingLimits(1, parentScale / 2, (parentScale / 2) + zoomFactor)
+	elseif addon:IsParentMap(mapID) then
 		self:SetScalingLimits(1, parentScale, parentScale + zoomFactor)
 	else
 		self:SetScalingLimits(1, mapScale, mapScale + zoomFactor)
