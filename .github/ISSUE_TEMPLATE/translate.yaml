@@ -64,6 +64,11 @@ body:
       placeholder: Translation here
   - type: input
     attributes:
+      label: '"Show on Azeroth"'
+      description: Used in the settings
+      placeholder: Translation here
+  - type: input
+    attributes:
       label: '"Hold key to hide"'
       description: Used in the settings
       placeholder: Translation here

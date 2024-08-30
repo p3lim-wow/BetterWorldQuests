@@ -1,5 +1,10 @@
 local _, addon = ...
 
+local showAzeroth
+addon:RegisterOptionCallback('showAzeroth', function(value)
+	showAzeroth = value
+end)
+
 local provider = CreateFromMixins(WorldMap_WorldQuestDataProviderMixin)
 provider:SetMatchWorldMapFilters(true)
 provider:SetUsesSpellEffect(true)
@@ -11,18 +16,28 @@ function provider:GetPinTemplate()
 end
 
 -- override ShouldOverrideShowQuest method to show pins on continent maps
-function provider:ShouldOverrideShowQuest(mapID) --, questInfo)
-	local mapInfo = C_Map.GetMapInfo(mapID)
-	return mapInfo.mapType == Enum.UIMapType.Continent
+function provider:ShouldOverrideShowQuest()
+	-- just nop so we don't hit the default
 end
 
 -- override ShouldShowQuest method to show pins on parent maps
 function provider:ShouldShowQuest(questInfo)
+	local mapID = self:GetMap():GetMapID()
+	if mapID == 947 then
+		-- TODO: change option to only show when there's few?
+		return showAzeroth
+	end
+
 	if WorldQuestDataProviderMixin.ShouldShowQuest(self, questInfo) then -- super
 		return true
 	end
 
-	return addon:IsChildMap(self:GetMap():GetMapID(), questInfo.mapID)
+	local mapInfo = C_Map.GetMapInfo(mapID)
+	if mapInfo.mapType == Enum.UIMapType.Continent then
+		return true
+	end
+
+	return addon:IsChildMap(mapID, questInfo.mapID)
 end
 
 WorldMapFrame:AddDataProvider(provider)

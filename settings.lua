@@ -40,6 +40,12 @@ addon:RegisterSettings('BetterWorldQuestsDB', {
 		valueFormat = formatPercentage,
 	},
 	{
+		key = 'showAzeroth',
+		type = 'toggle',
+		title = L['Show on Azeroth'],
+		default = false,
+	},
+	{
 		key = 'hideModifier',
 		type = 'menu',
 		title = L['Hold key to hide'],
