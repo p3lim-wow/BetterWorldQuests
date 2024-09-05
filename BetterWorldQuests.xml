@@ -5,4 +5,5 @@
 		</KeyValues>
 	</Frame>
 	<Frame name='BetterWorldQuestPOITemplate' inherits='AreaPOIPinTemplate' virtual='true'/>
+	<Frame name='BetterWorldQuestEventTemplate' inherits='AreaPOIEventPinTemplate' virtual='true'/>
 </Ui>

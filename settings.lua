@@ -40,6 +40,12 @@ addon:RegisterSettings('BetterWorldQuestsDB', {
 		valueFormat = formatPercentage,
 	},
 	{
+		key = 'showEvents',
+		type = 'toggle',
+		title = L['Show events on continent'],
+		default = false,
+	},
+	{
 		key = 'showAzeroth',
 		type = 'toggle',
 		title = L['Show on Azeroth'],

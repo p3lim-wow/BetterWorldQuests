@@ -40,3 +40,4 @@ provider.lua
 pin.lua
 storms.lua
 poi.lua
+events.lua
