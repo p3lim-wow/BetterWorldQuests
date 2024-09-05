@@ -39,3 +39,4 @@ settings.lua
 provider.lua
 pin.lua
 storms.lua
+poi.lua

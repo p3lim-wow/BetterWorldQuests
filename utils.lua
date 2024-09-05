@@ -75,3 +75,9 @@ function addon:IsChildMap(parentMapID, mapID)
 	local mapInfo = C_Map.GetMapInfo(mapID)
 	return parentMapID and mapID and mapInfo and mapInfo.parentMapID and mapInfo.parentMapID == parentMapID
 end
+
+function addon:TranslatePosition(position, fromMapID, toMapID)
+	local continentID, worldPos = C_Map.GetWorldPosFromMapPos(fromMapID, position)
+	local _, newPos = C_Map.GetMapPosFromWorldPos(continentID, worldPos, toMapID)
+	return newPos
+end
