@@ -22,6 +22,8 @@ globals = {
 
 read_globals = {
 	-- FrameXML objects
+	'AreaPOIDataProviderMixin',
+	'AreaPOIEventDataProviderMixin',
 	'WorldMap_WorldQuestDataProviderMixin',
 	'WorldMap_WorldQuestPinMixin',
 	'WorldMapFrame',
@@ -32,6 +34,7 @@ read_globals = {
 
 	-- FrameXML functions
 	'CreateFromMixins',
+	'GetAreaPOIsForPlayerByMapIDCached',
 
 	-- GlobalStrings
 	'PERCENTAGE_STRING',
