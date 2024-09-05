@@ -1,3 +1,7 @@
 <Ui>
-	<Frame name='BetterWorldQuestPinTemplate' inherits='POIButtonTemplate, LegendHighlightableMapPoiPinTemplate' mixin='BetterWorldQuestPinMixin' virtual='true'/>
+	<Frame name='BetterWorldQuestPinTemplate' inherits='POIButtonTemplate, LegendHighlightableMapPoiPinTemplate' mixin='BetterWorldQuestPinMixin' virtual='true'>
+		<KeyValues>
+			<KeyValue key="questRewardTooltipStyle" value="TOOLTIP_QUEST_REWARDS_STYLE_WORLD_QUEST" type="global"/>
+		</KeyValues>
+	</Frame>
 </Ui>
