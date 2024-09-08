@@ -1,3 +1,10 @@
+### Changes in 110000.35-Release:
+
+- Added: Option to show event POIs on continent maps (disabled by default)
+- Added: "Special Assignment" POIs to continent maps
+- Changed: Updated chinese translations
+- Fixed: Missing reputation-related tooltip line
+
 ### Changes in 110000.34-Release:
 
 - Added: Option to show world quests on Azeroth world map
