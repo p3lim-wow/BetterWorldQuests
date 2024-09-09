@@ -49,6 +49,16 @@ end
 
 WorldMapFrame:AddDataProvider(provider)
 
+-- hook into changes
+local function updateVisuals()
+	-- update pins on changes
+	if WorldMapFrame:IsShown() then
+		provider:RefreshAllData()
+	end
+end
+
+addon:RegisterOptionCallback('showEvents', updateVisuals)
+
 -- change visibility
 local modifier
 local function toggleVisibility()

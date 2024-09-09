@@ -42,6 +42,25 @@ end
 
 WorldMapFrame:AddDataProvider(provider)
 
+-- hook into changes
+local function updateVisuals()
+	-- update pins on changes
+	if WorldMapFrame:IsShown() then
+		provider:RefreshAllData()
+
+		for pin in WorldMapFrame:EnumeratePinsByTemplate(provider:GetPinTemplate()) do
+			pin:RefreshVisuals()
+			pin:ApplyCurrentScale()
+		end
+	end
+end
+
+addon:RegisterOptionCallback('mapScale', updateVisuals)
+addon:RegisterOptionCallback('parentScale', updateVisuals)
+addon:RegisterOptionCallback('zoomFactor', updateVisuals)
+addon:RegisterOptionCallback('showAzeroth', updateVisuals)
+addon:RegisterOptionCallback('showEvents', updateVisuals)
+
 -- remove the default provider
 for dp in next, WorldMapFrame.dataProviders do
 	if dp.GetPinTemplate and dp.GetPinTemplate() == 'WorldMap_WorldQuestPinTemplate' then
