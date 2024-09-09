@@ -2,11 +2,6 @@ local _, addon = ...
 
 local SPECIAL_ASSIGNMENT_WIDGET_SET = 1108
 
-local showAzeroth
-addon:RegisterOptionCallback('showAzeroth', function(value)
-	showAzeroth = value
-end)
-
 local provider = CreateFromMixins(AreaPOIDataProviderMixin)
 function provider:GetPinTemplate()
 	return 'BetterWorldQuestPOITemplate'

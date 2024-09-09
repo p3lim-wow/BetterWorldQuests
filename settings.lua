@@ -100,7 +100,7 @@ local function createSlider(root, name, getter, setter, minValue, maxValue, step
 end
 
 -- inject some of the settings into the tracking menu
-Menu.ModifyMenu('MENU_WORLD_MAP_TRACKING', function(_, root, data)
+Menu.ModifyMenu('MENU_WORLD_MAP_TRACKING', function(_, root)
 	root:CreateDivider()
 	root:CreateTitle((addonName:gsub('(%l)(%u)', '%1 %2')) .. HEADER_COLON)
 

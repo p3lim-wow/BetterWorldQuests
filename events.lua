@@ -1,9 +1,6 @@
 local _, addon = ...
 
-local showAzeroth, showEvents
-addon:RegisterOptionCallback('showAzeroth', function(value)
-	showAzeroth = value
-end)
+local showEvents
 addon:RegisterOptionCallback('showEvents', function(value)
 	showEvents = value
 end)

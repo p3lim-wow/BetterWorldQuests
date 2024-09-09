@@ -24,6 +24,8 @@ read_globals = {
 	-- FrameXML objects
 	'AreaPOIDataProviderMixin',
 	'AreaPOIEventDataProviderMixin',
+	'Menu',
+	'MinimalSliderWithSteppersMixin',
 	'WorldMap_WorldQuestDataProviderMixin',
 	'WorldMap_WorldQuestPinMixin',
 	'WorldMapFrame',
@@ -42,6 +44,7 @@ read_globals = {
 	'ALT_KEY',
 	'CTRL_KEY',
 	'SHIFT_KEY',
+	'HEADER_COLON',
 
 	-- namespaces
 	'C_AreaPoiInfo',
