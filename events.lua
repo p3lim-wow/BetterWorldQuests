@@ -23,7 +23,7 @@ function provider:RefreshAllData()
 	local map = self:GetMap()
 	local mapID = map:GetMapID()
 
-	if mapID == 947 and not showAzeroth then
+	if mapID == 947 then
 		return
 	end
 
