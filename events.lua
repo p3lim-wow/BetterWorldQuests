@@ -39,7 +39,9 @@ function provider:RefreshAllData()
 						-- translate position
 						poiInfo.position = addon:TranslatePosition(poiInfo.position, mapInfo.mapID, mapID)
 
-						map:AcquirePin(self:GetPinTemplate(), poiInfo)
+						if poiInfo.position then
+							map:AcquirePin(self:GetPinTemplate(), poiInfo)
+						end
 					end
 				end
 			end
