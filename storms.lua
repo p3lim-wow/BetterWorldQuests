@@ -1,3 +1,4 @@
+local _, addon = ...
 local HBD = LibStub('HereBeDragons-2.0')
 
 local DRAGON_ISLES_MAPS = {
@@ -7,10 +8,6 @@ local DRAGON_ISLES_MAPS = {
 	[2025] = true, -- Thaldraszus
 }
 
-local function startsWith(str, start)
-	return string.sub(str, 1, string.len(start)) == start
-end
-
 local function updatePOIs(self)
 	local map = self:GetMap()
 	local mapID = map:GetMapID()
@@ -18,7 +15,7 @@ local function updatePOIs(self)
 		for childMapID in next, DRAGON_ISLES_MAPS do
 			for _, poiID in next, C_AreaPoiInfo.GetAreaPOIForMap(childMapID) do
 				local info = C_AreaPoiInfo.GetAreaPOIInfo(childMapID, poiID)
-				if info and startsWith(info.atlasName, 'ElementalStorm') then
+				if info and addon:startswith(info.atlasName, 'ElementalStorm') then
 					local x, y = info.position:GetXY()
 					info.dataProvider = self
 					info.position:SetXY(HBD:TranslateZoneCoordinates(x, y, childMapID, mapID))
