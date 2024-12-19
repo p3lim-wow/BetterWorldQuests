@@ -1,9 +1,9 @@
 <Ui>
-	<Frame name='BetterWorldQuestPinTemplate' inherits='POIButtonTemplate, LegendHighlightableMapPoiPinTemplate' mixin='BetterWorldQuestPinMixin' virtual='true'>
+	<Button name='BetterWorldQuestPinTemplate' inherits='POIButtonTemplate, LegendHighlightableMapPoiPinTemplate' mixin='BetterWorldQuestPinMixin' virtual='true'>
 		<KeyValues>
 			<KeyValue key="questRewardTooltipStyle" value="TOOLTIP_QUEST_REWARDS_STYLE_WORLD_QUEST" type="global"/>
 		</KeyValues>
-	</Frame>
-	<Frame name='BetterWorldQuestPOITemplate' inherits='AreaPOIPinTemplate' virtual='true'/>
-	<Frame name='BetterWorldQuestEventTemplate' inherits='AreaPOIEventPinTemplate' virtual='true'/>
+	</Button>
+	<Button name='BetterWorldQuestPOITemplate' inherits='AreaPOIPinTemplate' virtual='true'/>
+	<Button name='BetterWorldQuestEventTemplate' inherits='AreaPOIEventPinTemplate' virtual='true'/>
 </Ui>
