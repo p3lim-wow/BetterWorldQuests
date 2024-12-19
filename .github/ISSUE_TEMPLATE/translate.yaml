@@ -1,11 +1,11 @@
+# This file is auto-generated!
 name: Translation
 description: Provide a translation for in-game strings.
 title: 'Translation: '
 labels:
-  - enhancement
   - translation
 assignees:
-  - p3lim
+  - p3lim-wow
 body:
   - type: dropdown
     id: locale
@@ -28,57 +28,65 @@ body:
     attributes:
       value: |
         Please translate each sentence below into the fields next to them.  
-        It is not required to translate all of them.
 
         ---
-# the rest is a list of strings to translate
   - type: input
     attributes:
-      label: '"Map pin scale"'
-      description: Used in the settings
+      label: Hold key to hide
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"The scale of world quest pins on the current map"'
-      description: Used in the settings
+      label: Hold this key to temporarily hide all world quests
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Overview pin scale"'
-      description: Used in the settings
+      label: How much extra scale to apply when map is zoomed
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"The scale of world quest pins on a parent/continent map"'
-      description: Used in the settings
+      label: Map pin scale
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Pin size zoom factor"'
-      description: Used in the settings
+      label: Overview pin scale
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"How much extra scale to apply when map is zoomed"'
-      description: Used in the settings
+      label: Pin size zoom factor
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Show events on continent"'
-      description: Used in the settings
+      label: Show events on continent
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Show on Azeroth"'
-      description: Used in the settings
+      label: Show on Azeroth
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Hold key to hide"'
-      description: Used in the settings
+      label: The scale of world quest pins on a parent/continent map
       placeholder: Translation here
+    validations:
+      required: true
   - type: input
     attributes:
-      label: '"Hold this key to temporarily hide all world quests"'
-      description: Used in the settings
+      label: The scale of world quest pins on the current map
       placeholder: Translation here
+    validations:
+      required: true
