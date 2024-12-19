@@ -40,6 +40,17 @@ function provider:ShouldShowQuest(questInfo)
 	return addon:IsChildMap(mapID, questInfo.mapID)
 end
 
+-- remove the default provider
+for dp in next, WorldMapFrame.dataProviders do
+	if not dp.GetPinTemplates and type(dp.GetPinTemplate) == 'function' then
+		if dp:GetPinTemplate() == 'WorldMap_WorldQuestPinTemplate' then
+			WorldMapFrame:RemoveDataProvider(dp)
+			break
+		end
+	end
+end
+
+-- add our own
 WorldMapFrame:AddDataProvider(provider)
 
 -- hook into changes
@@ -60,13 +71,6 @@ addon:RegisterOptionCallback('parentScale', updateVisuals)
 addon:RegisterOptionCallback('zoomFactor', updateVisuals)
 addon:RegisterOptionCallback('showAzeroth', updateVisuals)
 addon:RegisterOptionCallback('showEvents', updateVisuals)
-
--- remove the default provider
-for dp in next, WorldMapFrame.dataProviders do
-	if dp.GetPinTemplate and dp.GetPinTemplate() == 'WorldMap_WorldQuestPinTemplate' then
-		WorldMapFrame:RemoveDataProvider(dp)
-	end
-end
 
 -- change visibility
 local modifier

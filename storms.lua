@@ -26,8 +26,11 @@ local function updatePOIs(self)
 	end
 end
 
-for provider in next, WorldMapFrame.dataProviders do
-	if provider.GetPinTemplate and provider:GetPinTemplate() == 'AreaPOIPinTemplate' then
-		hooksecurefunc(provider, 'RefreshAllData', updatePOIs)
+for dp in next, WorldMapFrame.dataProviders do
+	if not dp.GetPinTemplates and type(dp.GetPinTemplate) == 'function' then
+		if dp:GetPinTemplate() == 'AreaPOIPinTemplate' then
+			hooksecurefunc(dp, 'RefreshAllData', updatePOIs)
+			break
+		end
 	end
 end
