@@ -18,8 +18,8 @@ Due to the nature of this addon, any other addons that deals with world quests o
 
 ## Translations
 
-If you want to help translate Molinari, please use this form on GitHub:  
-<https://github.com/p3lim-wow/BetterWorldQuests/issues/new?template=translate.yaml>
+If you want to help translate Better World Quests, please go here:  
+<https://legacy.curseforge.com/wow/addons/better-world-quests/localization>
 
 ## Feedback & issues
 
